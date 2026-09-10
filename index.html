@@ -3,921 +3,917 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffd600">
 <title>گلدن ماگ | فروشگاه اینترنتی</title>
 
 <style>
-/* =========================
-   RESET
-========================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --yellow:#ffd600;
+ --yellow2:#fff1a8;
+ --red:#e53935;
+ --red2:#c62828;
+ --green:#0a9f55;
+ --dark:#202020;
+ --muted:#777;
+ --bg:#f5f5f5;
+ --card:#fff;
+ --line:#e4e4e4;
+ --shadow:0 5px 22px rgba(0,0,0,.07);
 }
-
-html{
-    scroll-behavior:smooth;
-}
-
+html{scroll-behavior:smooth}
 body{
-    background:#f5f5f5;
-    color:#202020;
-    font-family:Tahoma, Arial, sans-serif;
+ font-family:Tahoma,Arial,sans-serif;
+ background:var(--bg);
+ color:var(--dark);
+ transition:.25s;
+}
+body.dark{
+ --bg:#11151b;
+ --card:#1c222a;
+ --dark:#f3f5f7;
+ --muted:#aab2bd;
+ --line:#303842;
+}
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+/* TOP */
+.top{
+ height:34px;
+ background:#252525;
+ color:#fff;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:11px;
 }
 
-/* =========================
-   TOP BAR
-========================= */
-.top-bar{
-    background:#242424;
-    color:#fff;
-    height:36px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:12px;
-}
-
-.top-bar span{
-    opacity:.9;
-}
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 header{
-    background:#fff;
-    border-bottom:1px solid #e5e5e5;
-    position:sticky;
-    top:0;
-    z-index:1000;
+ background:var(--card);
+ position:sticky;
+ top:0;
+ z-index:100;
+ border-bottom:1px solid var(--line);
 }
-
-.header-main{
-    max-width:1400px;
-    margin:auto;
-    min-height:76px;
-    padding:12px 22px;
-    display:flex;
-    align-items:center;
-    gap:22px;
+.head{
+ max-width:1400px;
+ margin:auto;
+ padding:12px 20px;
+ display:flex;
+ align-items:center;
+ gap:18px;
 }
-
-/* LOGO */
-.logo{
-    min-width:155px;
-    text-decoration:none;
-    display:flex;
-    flex-direction:column;
-    line-height:1;
+.logo{min-width:150px}
+.logo b{font-size:27px;color:var(--red)}
+.logo small{
+ display:block;
+ color:var(--muted);
+ font-size:9px;
+ margin-top:6px;
 }
-
-.logo-main{
-    color:#e53935;
-    font-size:27px;
-    font-weight:bold;
+.search{
+ flex:1;
+ position:relative;
 }
-
-.logo-sub{
-    color:#777;
-    font-size:10px;
-    margin-top:7px;
+.search input{
+ width:100%;
+ height:46px;
+ border:0;
+ outline:0;
+ background:#f0f1f3;
+ border-radius:10px;
+ padding:0 45px 0 15px;
+ font-size:13px;
 }
-
-/* SEARCH */
-.search-box{
-    flex:1;
-    max-width:700px;
-    position:relative;
+body.dark .search input{
+ background:#292f37;
+ color:#fff;
 }
-
-.search-box input{
-    width:100%;
-    height:46px;
-    border:none;
-    outline:none;
-    background:#f1f2f4;
-    border-radius:10px;
-    padding:0 50px 0 18px;
-    font-size:14px;
-    direction:rtl;
-}
-
-.search-box input:focus{
-    background:#e9eaed;
-}
-
 .search-icon{
-    position:absolute;
-    right:17px;
-    top:13px;
-    font-size:18px;
-    color:#777;
+ position:absolute;
+ right:15px;
+ top:13px;
+ color:#777;
+ font-size:18px;
 }
-
-/* HEADER ACTIONS */
-.header-actions{
-    margin-right:auto;
-    display:flex;
-    align-items:center;
-    gap:8px;
+.actions{
+ display:flex;
+ gap:7px;
 }
-
-.action-btn{
-    background:#fff;
-    border:1px solid #ddd;
-    border-radius:9px;
-    min-height:43px;
-    padding:0 15px;
-    cursor:pointer;
-    font-family:Tahoma;
-    font-size:13px;
-    color:#333;
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    gap:7px;
+.action{
+ min-height:43px;
+ border:1px solid var(--line);
+ background:var(--card);
+ color:var(--dark);
+ border-radius:9px;
+ padding:0 13px;
+ font-size:12px;
 }
-
-.action-btn:hover{
-    background:#f7f7f7;
+.cart{
+ position:relative;
 }
-
-.cart-btn{
-    position:relative;
-    font-weight:bold;
-}
-
 .cart-count{
-    position:absolute;
-    top:-6px;
-    right:-6px;
-    background:#e53935;
-    color:#fff;
-    width:19px;
-    height:19px;
-    border-radius:50%;
-    font-size:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+ position:absolute;
+ top:-7px;
+ right:-6px;
+ width:19px;
+ height:19px;
+ border-radius:50%;
+ background:var(--red);
+ color:#fff;
+ font-size:10px;
+ display:grid;
+ place-items:center;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAV */
 .nav{
-    border-top:1px solid #f0f0f0;
-    background:#fff;
+ border-top:1px solid var(--line);
+ background:var(--card);
 }
-
-.nav-inner{
-    max-width:1400px;
-    margin:auto;
-    padding:0 22px;
-    min-height:45px;
-    display:flex;
-    align-items:center;
-    gap:24px;
+.navin{
+ max-width:1400px;
+ margin:auto;
+ padding:0 20px;
+ display:flex;
+ gap:25px;
+ overflow:auto;
 }
-
 .nav a{
-    text-decoration:none;
-    color:#444;
-    font-size:13px;
-    padding:14px 2px;
-    white-space:nowrap;
+ white-space:nowrap;
+ padding:13px 0;
+ font-size:12px;
+}
+.nav a:hover{color:var(--red)}
+
+/* CONTAINER */
+.wrap{
+ max-width:1400px;
+ margin:auto;
+ padding:0 20px;
 }
 
-.nav a:hover{
-    color:#e53935;
-}
-
-.category-link{
-    font-weight:bold;
-    border-left:1px solid #ddd;
-    padding-left:25px !important;
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .hero{
-    max-width:1400px;
-    margin:20px auto;
-    padding:0 22px;
+ margin:20px 0;
+ border-radius:18px;
+ overflow:hidden;
+ min-height:340px;
+ position:relative;
+ background:linear-gradient(120deg,#fff,#fff2a5,#ffd600);
+ box-shadow:var(--shadow);
 }
-
-.hero-box{
-    min-height:300px;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
-    background:linear-gradient(120deg,#ffd600,#fff1a8,#ffffff);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    box-shadow:0 4px 18px rgba(0,0,0,.06);
+.slide{
+ display:none;
+ height:340px;
+ align-items:center;
 }
-
-.hero-content{
-    padding:45px;
-    width:52%;
-    position:relative;
-    z-index:2;
+.slide.active{display:flex}
+.slide-text{
+ width:50%;
+ padding:42px;
 }
-
-.hero-content small{
-    color:#e53935;
-    font-weight:bold;
-    font-size:14px;
+.slide-text small{
+ color:var(--red);
+ font-weight:bold;
 }
-
-.hero-content h1{
-    font-size:36px;
-    margin:15px 0;
-    font-weight:bold;
+.slide-text h1{
+ font-size:34px;
+ line-height:1.6;
+ margin:12px 0;
 }
-
-.hero-content p{
-    color:#555;
-    line-height:2;
-    max-width:550px;
-    font-size:15px;
+.slide-text p{
+ color:#555;
+ line-height:2;
+ font-size:14px;
 }
-
+body.dark .slide-text p{color:#555}
+.slide-image{
+ width:50%;
+ height:340px;
+}
+.slide-image img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
 .hero-btn{
-    margin-top:25px;
-    background:#e53935;
-    color:white;
-    border:none;
-    border-radius:9px;
-    padding:14px 30px;
-    font-family:Tahoma;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
+ margin-top:20px;
+ padding:13px 25px;
+ border:0;
+ border-radius:9px;
+ background:var(--red);
+ color:#fff;
+ font-weight:bold;
 }
-
-.hero-btn:hover{
-    background:#c62828;
+.hero-btn:hover{background:var(--red2)}
+.dots{
+ position:absolute;
+ bottom:12px;
+ left:50%;
+ transform:translateX(-50%);
+ display:flex;
+ gap:7px;
 }
-
-.hero-image{
-    width:48%;
-    height:300px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.dot{
+ width:8px;
+ height:8px;
+ background:#aaa;
+ border-radius:50%;
 }
+.dot.active{background:var(--red)}
 
-.hero-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-/* =========================
-   FEATURES
-========================= */
+/* FEATURES */
 .features{
-    max-width:1400px;
-    margin:20px auto;
-    padding:0 22px;
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:14px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ box-shadow:var(--shadow);
 }
-
-.features-box{
-    background:#fff;
-    border-radius:14px;
-    padding:20px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    border:1px solid #eee;
-}
-
 .feature{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    border-left:1px solid #eee;
+ padding:20px;
+ text-align:center;
+ border-left:1px solid var(--line);
+ font-size:12px;
 }
-
-.feature:last-child{
-    border-left:none;
-}
-
+.feature:last-child{border-left:0}
 .feature-icon{
-    font-size:24px;
+ font-size:22px;
+ margin-bottom:8px;
+}
+.feature strong{display:block}
+.feature span{
+ color:var(--muted);
+ font-size:10px;
+ display:block;
+ margin-top:6px;
 }
 
-.feature-text strong{
-    display:block;
-    font-size:13px;
-    margin-bottom:5px;
-}
-
-.feature-text span{
-    color:#888;
-    font-size:11px;
-}
-
-/* =========================
-   SECTION
-========================= */
-.container{
-    max-width:1400px;
-    margin:auto;
-    padding:0 22px;
-}
-
+/* SECTIONS */
 .section{
-    background:#fff;
-    border-radius:16px;
-    margin:25px 0;
-    padding:25px;
-    border:1px solid #eee;
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:15px;
+ padding:22px;
+ margin:20px 0;
+}
+.section-top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:20px;
+}
+.title{
+ font-size:20px;
+}
+.title:after{
+ content:"";
+ display:block;
+ width:48px;
+ height:3px;
+ background:var(--red);
+ margin-top:8px;
+ border-radius:5px;
+}
+.view{
+ color:var(--red);
+ font-size:12px;
+ font-weight:bold;
 }
 
-.section-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:22px;
-}
-
-.section-title{
-    font-size:22px;
-    font-weight:bold;
-}
-
-.section-title::after{
-    content:"";
-    display:block;
-    width:55px;
-    height:3px;
-    background:#e53935;
-    margin-top:9px;
-    border-radius:5px;
-}
-
-.view-all{
-    color:#e53935;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:bold;
-}
-
-/* =========================
-   PRODUCTS
-========================= */
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:#ddd;
-    border:1px solid #ddd;
-    overflow:hidden;
-    border-radius:12px;
-}
-
-.card{
-    background:#fff;
-    padding:18px;
-    position:relative;
-    min-width:0;
-    transition:.2s;
-}
-
-.card:hover{
-    box-shadow:0 5px 20px rgba(0,0,0,.12);
-    z-index:2;
-}
-
-.badge{
-    position:absolute;
-    top:15px;
-    right:15px;
-    background:#e53935;
-    color:white;
-    padding:5px 9px;
-    border-radius:5px;
-    font-size:10px;
-    font-weight:bold;
-}
-
-.product-image{
-    width:100%;
-    height:230px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:15px;
-}
-
-.product-image img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.card h3{
-    font-size:14px;
-    line-height:1.8;
-    min-height:50px;
-    color:#333;
-}
-
-.rating{
-    color:#f5a400;
-    font-size:12px;
-    margin:9px 0;
-}
-
-.rating span{
-    color:#999;
-    margin-right:5px;
-}
-
-.old-price{
-    color:#aaa;
-    text-decoration:line-through;
-    font-size:11px;
-    min-height:18px;
-}
-
-.price-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:5px;
-}
-
-.price{
-    color:#222;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.price-unit{
-    font-size:10px;
-    color:#555;
-}
-
-.discount{
-    background:#e53935;
-    color:white;
-    border-radius:15px;
-    padding:4px 7px;
-    font-size:10px;
-}
-
-.buy-btn{
-    width:100%;
-    margin-top:15px;
-    border:1px solid #e53935;
-    color:#e53935;
-    background:white;
-    border-radius:8px;
-    padding:10px;
-    font-family:Tahoma;
-    font-size:12px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.buy-btn:hover{
-    background:#e53935;
-    color:white;
-}
-
-/* =========================
-   CATEGORIES
-========================= */
+/* CATEGORIES */
 .categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:12px;
 }
-
 .category{
-    min-height:110px;
-    background:#fafafa;
-    border:1px solid #eee;
-    border-radius:12px;
-    padding:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-decoration:none;
-    color:#333;
-    transition:.2s;
+ min-height:105px;
+ background:#fafafa;
+ border:1px solid var(--line);
+ border-radius:12px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ transition:.2s;
 }
-
+body.dark .category{background:#20262e}
 .category:hover{
-    border-color:#ffd600;
-    background:#fffdf0;
-    transform:translateY(-3px);
+ border-color:var(--yellow);
+ transform:translateY(-3px);
 }
-
 .category-icon{
-    font-size:30px;
-    margin-bottom:10px;
+ font-size:29px;
+ margin-bottom:9px;
 }
-
 .category span{
-    font-size:13px;
-    font-weight:bold;
+ font-size:12px;
+ font-weight:bold;
 }
 
-/* =========================
-   CONTACT
-========================= */
-.contact{
-    max-width:1400px;
-    margin:25px auto;
-    padding:0 22px;
+/* TOOLBAR */
+.toolbar{
+ display:flex;
+ flex-wrap:wrap;
+ gap:9px;
+ margin-bottom:17px;
+}
+.filter-btn,
+.sort{
+ border:1px solid var(--line);
+ background:var(--card);
+ color:var(--dark);
+ border-radius:8px;
+ padding:10px 13px;
+ font-size:11px;
+}
+.filter-btn.active{
+ background:var(--yellow);
+ border-color:var(--yellow);
+}
+.sort{
+ outline:none;
 }
 
-.contact-box{
-    background:#fff;
-    border-radius:16px;
-    border:1px solid #eee;
-    padding:30px;
+/* PRODUCTS */
+.products{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:1px;
+ background:var(--line);
+ border:1px solid var(--line);
+ border-radius:12px;
+ overflow:hidden;
+}
+.card{
+ background:var(--card);
+ padding:17px;
+ position:relative;
+ transition:.2s;
+}
+.card:hover{
+ box-shadow:0 8px 25px rgba(0,0,0,.13);
+ z-index:2;
+}
+.badge{
+ position:absolute;
+ top:14px;
+ right:14px;
+ z-index:3;
+ background:var(--red);
+ color:#fff;
+ padding:5px 8px;
+ border-radius:5px;
+ font-size:9px;
+}
+.heart{
+ position:absolute;
+ top:13px;
+ left:13px;
+ border:0;
+ background:var(--card);
+ color:#999;
+ font-size:20px;
+ z-index:3;
+}
+.heart.active{color:var(--red)}
+.compare{
+ position:absolute;
+ top:43px;
+ left:13px;
+ border:0;
+ background:var(--card);
+ color:#777;
+ font-size:10px;
+ z-index:3;
+}
+.compare.active{color:var(--red)}
+.product-image{
+ height:225px;
+ width:100%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ margin-bottom:13px;
+}
+.product-image img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+}
+.card h3{
+ font-size:14px;
+ line-height:1.8;
+ min-height:48px;
+}
+.rating{
+ margin:8px 0;
+ font-size:12px;
+ color:#f3a400;
+ cursor:pointer;
+}
+.rating span{
+ color:var(--muted);
+ font-size:10px;
+ margin-right:5px;
+}
+.old{
+ min-height:17px;
+ color:#aaa;
+ text-decoration:line-through;
+ font-size:10px;
+}
+.price-row{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-top:4px;
+}
+.price{
+ font-size:17px;
+ font-weight:bold;
+}
+.unit{
+ font-size:9px;
+ color:var(--muted);
+}
+.discount{
+ background:var(--red);
+ color:#fff;
+ border-radius:15px;
+ padding:4px 7px;
+ font-size:9px;
+}
+.stock{
+ color:var(--green);
+ font-size:10px;
+ margin-top:8px;
+}
+.buy{
+ width:100%;
+ margin-top:13px;
+ padding:10px;
+ border-radius:8px;
+ border:1px solid var(--red);
+ color:var(--red);
+ background:var(--card);
+ font-size:11px;
+ font-weight:bold;
+}
+.buy:hover{
+ background:var(--red);
+ color:#fff;
+}
+.no-result{
+ grid-column:1/-1;
+ text-align:center;
+ padding:45px;
+ color:var(--muted);
 }
 
-.contact-title{
-    font-size:22px;
-    margin-bottom:25px;
-    font-weight:bold;
+/* DEAL */
+.deal{
+ background:linear-gradient(110deg,#d92323,#f05252);
+ color:#fff;
+ border-radius:15px;
+ padding:24px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.deal h2{font-size:21px;margin-bottom:8px}
+.deal p{font-size:12px;opacity:.9}
+.timer{
+ display:flex;
+ gap:7px;
+ direction:ltr;
+}
+.time{
+ background:#fff;
+ color:#222;
+ min-width:55px;
+ padding:9px 5px;
+ border-radius:8px;
+ text-align:center;
+}
+.time b{
+ display:block;
+ font-size:17px;
+}
+.time span{font-size:8px}
+
+/* CART DRAWER */
+.overlay{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.5);
+ z-index:200;
+ display:none;
+}
+.overlay.show{display:block}
+.drawer{
+ position:fixed;
+ top:0;
+ right:-430px;
+ width:410px;
+ max-width:92%;
+ height:100vh;
+ background:var(--card);
+ z-index:201;
+ transition:.3s;
+ padding:22px;
+ display:flex;
+ flex-direction:column;
+}
+.drawer.open{right:0}
+.drawer-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid var(--line);
+ padding-bottom:16px;
+}
+.close{
+ border:0;
+ background:transparent;
+ font-size:23px;
+ color:var(--dark);
+}
+.cart-items{
+ flex:1;
+ overflow:auto;
+ padding:12px 0;
+}
+.cart-item{
+ display:grid;
+ grid-template-columns:65px 1fr auto;
+ gap:10px;
+ align-items:center;
+ border-bottom:1px solid var(--line);
+ padding:12px 0;
+}
+.cart-item img{
+ width:65px;
+ height:65px;
+ object-fit:contain;
+}
+.cart-item h4{font-size:11px;line-height:1.7}
+.cart-price{font-size:11px;font-weight:bold}
+.qty{
+ display:flex;
+ align-items:center;
+ gap:6px;
+ margin-top:6px;
+}
+.qty button{
+ width:22px;
+ height:22px;
+ border:1px solid var(--line);
+ background:var(--card);
+ color:var(--dark);
+ border-radius:5px;
+}
+.remove{
+ border:0;
+ background:transparent;
+ color:var(--red);
+ font-size:10px;
+}
+.cart-bottom{
+ border-top:1px solid var(--line);
+ padding-top:15px;
+}
+.total{
+ display:flex;
+ justify-content:space-between;
+ font-weight:bold;
+ margin-bottom:13px;
+}
+.checkout{
+ width:100%;
+ background:var(--red);
+ color:#fff;
+ border:0;
+ padding:13px;
+ border-radius:9px;
+ font-weight:bold;
+}
+.empty{
+ text-align:center;
+ color:var(--muted);
+ padding:50px 10px;
+ font-size:13px;
 }
 
+/* MODALS */
+.modal-wrap{
+ position:fixed;
+ inset:0;
+ z-index:300;
+ background:rgba(0,0,0,.58);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:15px;
+}
+.modal-wrap.show{display:flex}
+.modal{
+ width:650px;
+ max-width:100%;
+ max-height:90vh;
+ overflow:auto;
+ background:var(--card);
+ color:var(--dark);
+ border-radius:16px;
+ padding:22px;
+}
+.modal-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:18px;
+}
+.detail{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:25px;
+}
+.detail-image{
+ height:330px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+.detail-image img{
+ max-width:100%;
+ max-height:100%;
+ object-fit:contain;
+}
+.detail h2{font-size:22px;margin-bottom:10px}
+.detail-desc{
+ color:var(--muted);
+ font-size:12px;
+ line-height:2;
+ margin:15px 0;
+}
+.specs{
+ border-top:1px solid var(--line);
+ margin-top:15px;
+}
+.spec{
+ display:flex;
+ justify-content:space-between;
+ padding:9px 0;
+ border-bottom:1px solid var(--line);
+ font-size:11px;
+}
+.stars{
+ direction:ltr;
+ display:flex;
+ gap:5px;
+ margin:15px 0;
+}
+.star{
+ border:0;
+ background:transparent;
+ color:#ccc;
+ font-size:27px;
+}
+.star.selected{color:#f3a400}
+.toast{
+ position:fixed;
+ bottom:25px;
+ left:50%;
+ transform:translateX(-50%) translateY(80px);
+ background:#252525;
+ color:#fff;
+ padding:12px 20px;
+ border-radius:9px;
+ z-index:500;
+ font-size:12px;
+ opacity:0;
+ transition:.3s;
+}
+.toast.show{
+ opacity:1;
+ transform:translateX(-50%) translateY(0);
+}
+
+/* CONTACT */
 .contact-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
 }
-
 .contact-card{
-    border:1px solid #eee;
-    border-radius:12px;
-    padding:25px;
-    text-align:center;
-    background:#fff;
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:25px;
+ text-align:center;
 }
-
 .contact-card h3{
-    color:#e53935;
-    font-size:15px;
-    margin-bottom:13px;
+ color:var(--red);
+ font-size:14px;
+ margin-bottom:12px;
 }
-
 .contact-card p{
-    font-size:13px;
-    line-height:2;
-    color:#555;
+ font-size:12px;
+ line-height:2;
+ color:var(--muted);
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 footer{
-    background:#252525;
-    color:#fff;
-    margin-top:40px;
+ background:#252525;
+ color:#fff;
+ margin-top:35px;
 }
-
 .footer-main{
-    max-width:1400px;
-    margin:auto;
-    padding:45px 22px;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:35px;
+ max-width:1400px;
+ margin:auto;
+ padding:40px 20px;
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr 1fr;
+ gap:30px;
 }
-
 .footer-logo{
-    color:#ffd600;
-    font-size:25px;
-    font-weight:bold;
-    margin-bottom:15px;
+ color:var(--yellow);
+ font-size:25px;
+ font-weight:bold;
+ margin-bottom:13px;
 }
-
-.footer-column h3{
-    font-size:14px;
-    margin-bottom:18px;
+.footer-col h3{font-size:13px;margin-bottom:13px}
+.footer-col p,
+.footer-col a{
+ display:block;
+ color:#aaa;
+ font-size:11px;
+ line-height:2.4;
 }
-
-.footer-column p,
-.footer-column a{
-    display:block;
-    color:#bbb;
-    font-size:12px;
-    text-decoration:none;
-    line-height:2.4;
-}
-
-.footer-column a:hover{
-    color:#ffd600;
-}
-
+.footer-col a:hover{color:var(--yellow)}
 .footer-bottom{
-    border-top:1px solid #444;
-    text-align:center;
-    padding:18px;
-    color:#999;
-    font-size:11px;
+ border-top:1px solid #444;
+ text-align:center;
+ padding:17px;
+ color:#999;
+ font-size:10px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* FLOAT BUTTONS */
+.floating{
+ position:fixed;
+ left:18px;
+ bottom:18px;
+ z-index:80;
+ display:flex;
+ flex-direction:column;
+ gap:8px;
+}
+.float-btn{
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ border:1px solid var(--line);
+ background:var(--card);
+ color:var(--dark);
+ box-shadow:0 4px 15px rgba(0,0,0,.15);
+ font-size:16px;
+}
+.top-btn{display:none}
+.top-btn.show{display:block}
+
+/* RESPONSIVE */
 @media(max-width:1100px){
-
-    .products{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .footer-main{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .hero-content h1{
-        font-size:30px;
-    }
+ .products{grid-template-columns:repeat(3,1fr)}
+ .categories{grid-template-columns:repeat(3,1fr)}
+ .footer-main{grid-template-columns:repeat(2,1fr)}
 }
-
 @media(max-width:800px){
-
-    .header-main{
-        flex-wrap:wrap;
-    }
-
-    .logo{
-        min-width:auto;
-    }
-
-    .search-box{
-        order:3;
-        max-width:none;
-        width:100%;
-    }
-
-    .nav-inner{
-        overflow-x:auto;
-    }
-
-    .hero-box{
-        flex-direction:column-reverse;
-    }
-
-    .hero-content,
-    .hero-image{
-        width:100%;
-    }
-
-    .hero-image{
-        height:230px;
-    }
-
-    .hero-content{
-        padding:30px;
-        text-align:center;
-    }
-
-    .features-box{
-        grid-template-columns:repeat(2,1fr);
-        gap:20px;
-    }
-
-    .feature:nth-child(2){
-        border-left:none;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .categories{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
+ .head{flex-wrap:wrap}
+ .logo{min-width:auto}
+ .search{order:3;width:100%}
+ .features{grid-template-columns:repeat(2,1fr)}
+ .feature:nth-child(2){border-left:0}
+ .products{grid-template-columns:repeat(2,1fr)}
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .slide{height:auto;min-height:480px;flex-direction:column-reverse}
+ .slide-text,.slide-image{width:100%}
+ .slide-image{height:230px}
+ .slide-text{text-align:center;padding:25px}
+ .slide-text h1{font-size:26px}
+ .hero{min-height:480px}
+ .contact-grid{grid-template-columns:1fr}
+ .deal{flex-direction:column;text-align:center}
+ .detail{grid-template-columns:1fr}
+ .detail-image{height:260px}
 }
-
 @media(max-width:500px){
-
-    .top-bar{
-        font-size:10px;
-    }
-
-    .header-main{
-        padding:10px 12px;
-    }
-
-    .logo-main{
-        font-size:22px;
-    }
-
-    .header-actions .action-btn{
-        padding:0 9px;
-        font-size:11px;
-    }
-
-    .nav-inner{
-        padding:0 12px;
-        gap:18px;
-    }
-
-    .nav a{
-        font-size:11px;
-    }
-
-    .hero{
-        padding:0 10px;
-    }
-
-    .hero-content h1{
-        font-size:25px;
-    }
-
-    .container{
-        padding:0 10px;
-    }
-
-    .section{
-        padding:15px;
-    }
-
-    .section-title{
-        font-size:18px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .product-image{
-        height:280px;
-    }
-
-    .features{
-        padding:0 10px;
-    }
-
-    .features-box{
-        grid-template-columns:1fr 1fr;
-        padding:12px;
-    }
-
-    .feature{
-        border-left:none;
-    }
-
-    .feature-text span{
-        display:none;
-    }
-
-    .categories{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .footer-main{
-        grid-template-columns:1fr;
-        padding:30px 20px;
-    }
+ .head{padding:10px}
+ .logo b{font-size:22px}
+ .actions .action{padding:0 9px;font-size:10px}
+ .navin{padding:0 12px;gap:18px}
+ .wrap{padding:0 10px}
+ .hero{margin:10px 0}
+ .products{grid-template-columns:1fr}
+ .categories{grid-template-columns:1fr 1fr}
+ .features{grid-template-columns:1fr 1fr}
+ .section{padding:14px}
+ .section-top{margin-bottom:14px}
+ .title{font-size:17px}
+ .product-image{height:270px}
+ .footer-main{grid-template-columns:1fr;padding:30px 20px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-    <span>به فروشگاه اینترنتی گلدن ماگ خوش آمدید</span>
+<div class="top">
+ تخفیف‌های ویژه گلدن ماگ | سفارش سریع از طریق روبیکا
 </div>
 
-
-<!-- HEADER -->
 <header>
+ <div class="head">
 
-    <div class="header-main">
+  <a href="#" class="logo">
+   <b>گلدن ماگ</b>
+   <small>فروشگاه اینترنتی ماگ و فلاسک</small>
+  </a>
 
-        <a href="#" class="logo">
-            <span class="logo-main">گلدن ماگ</span>
-            <span class="logo-sub">فروشگاه ماگ و فلاسک</span>
-        </a>
+  <div class="search">
+   <span class="search-icon">⌕</span>
+   <input id="searchInput" type="text" placeholder="جستجو در گلدن ماگ..." oninput="renderProducts()">
+  </div>
 
+  <div class="actions">
+   <button class="action" onclick="toggleDark()">حالت شب</button>
+   <button class="action cart" onclick="openCart()">
+    سبد خرید
+    <span class="cart-count" id="cartCount">0</span>
+   </button>
+  </div>
 
-        <div class="search-box">
-            <span class="search-icon">⌕</span>
-            <input
-                type="text"
-                id="search"
-                placeholder="جستجو در گلدن ماگ..."
-                onkeyup="searchProducts()"
-            >
-        </div>
+ </div>
 
-
-        <div class="header-actions">
-
-            <a href="profile.html" class="action-btn">
-                حساب کاربری
-            </a>
-
-            <a href="#cart" class="action-btn cart-btn">
-                سبد خرید
-                <span class="cart-count" id="cartCount">0</span>
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- NAVIGATION -->
-    <div class="nav">
-
-        <div class="nav-inner">
-
-            <a href="#products" class="category-link">
-                دسته‌بندی محصولات
-            </a>
-
-            <a href="#">خانه</a>
-
-            <a href="#products">
-                محصولات
-            </a>
-
-            <a href="#special">
-                پیشنهاد ویژه
-            </a>
-
-            <a href="#contact">
-                تماس با ما
-            </a>
-
-            <a href="profile.html">
-                پروفایل
-            </a>
-
-            <a href="admin.html">
-                مدیریت
-            </a>
-
-        </div>
-
-    </div>
-
+ <nav class="nav">
+  <div class="navin">
+   <a href="#">خانه</a>
+   <a href="#categories">دسته‌بندی‌ها</a>
+   <a href="#products">محصولات</a>
+   <a href="#special">پیشنهاد ویژه</a>
+   <a href="#popular">محبوب‌ترین‌ها</a>
+   <a href="#contact">تماس با ما</a>
+  </div>
+ </nav>
 </header>
 
+
+<main class="wrap">
 
 <!-- HERO -->
 <section class="hero">
 
-    <div class="hero-box">
+ <div class="slide active">
+  <div class="slide-text">
+   <small>GOLDEN MUG</small>
+   <h1>ماگ و فلاسک<br>برای سلیقه خاص شما</h1>
+   <p>
+    محصولات جذاب و کاربردی گلدن ماگ را
+    با قیمت مناسب ببینید.
+   </p>
+   <button class="hero-btn" onclick="goProducts()">مشاهده محصولات</button>
+  </div>
 
-        <div class="hero-content">
+  <div class="slide-image">
+   <img src="hero.jpg" alt="گلدن ماگ">
+  </div>
+ </div>
 
-            <small>GOLDEN MUG</small>
+ <div class="slide">
+  <div class="slide-text">
+   <small>پیشنهاد ویژه</small>
+   <h1>محصولات منتخب<br>با تخفیف ویژه</h1>
+   <p>فرصت خرید محصولات محبوب گلدن ماگ را از دست ندهید.</p>
+   <button class="hero-btn" onclick="goProducts()">خرید کنید</button>
+  </div>
 
-            <h1>
-                خرید ماگ و فلاسک
-                با بهترین قیمت
-            </h1>
+  <div class="slide-image">
+   <img src="hero.jpg" alt="پیشنهاد گلدن ماگ">
+  </div>
+ </div>
 
-            <p>
-                مجموعه‌ای از ماگ‌ها و فلاسک‌های جذاب
-                برای استفاده روزمره، هدیه و محل کار.
-            </p>
-
-            <button
-                class="hero-btn"
-                onclick="document.getElementById('products').scrollIntoView()"
-            >
-                مشاهده محصولات
-            </button>
-
-        </div>
-
-
-        <div class="hero-image">
-
-            <img
-                src="hero.jpg"
-                alt="محصولات گلدن ماگ"
-            >
-
-        </div>
-
-    </div>
+ <div class="dots">
+  <span class="dot active" onclick="slideTo(0)"></span>
+  <span class="dot" onclick="slideTo(1)"></span>
+ </div>
 
 </section>
 
@@ -925,559 +921,1227 @@ footer{
 <!-- FEATURES -->
 <section class="features">
 
-    <div class="features-box">
+ <div class="feature">
+  <div class="feature-icon">✓</div>
+  <strong>خرید آسان</strong>
+  <span>انتخاب و سفارش سریع</span>
+ </div>
 
-        <div class="feature">
-            <div class="feature-icon">✓</div>
-            <div class="feature-text">
-                <strong>خرید آسان</strong>
-                <span>سفارش سریع محصولات</span>
-            </div>
-        </div>
+ <div class="feature">
+  <div class="feature-icon">★</div>
+  <strong>محصولات محبوب</strong>
+  <span>انتخاب‌های جذاب</span>
+ </div>
 
-        <div class="feature">
-            <div class="feature-icon">◆</div>
-            <div class="feature-text">
-                <strong>محصولات متنوع</strong>
-                <span>انتخاب از محصولات مختلف</span>
-            </div>
-        </div>
+ <div class="feature">
+  <div class="feature-icon">◆</div>
+  <strong>قیمت مناسب</strong>
+  <span>پیشنهادهای ویژه</span>
+ </div>
 
-        <div class="feature">
-            <div class="feature-icon">★</div>
-            <div class="feature-text">
-                <strong>قیمت مناسب</strong>
-                <span>قیمت‌های رقابتی</span>
-            </div>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">☎</div>
-            <div class="feature-text">
-                <strong>پشتیبانی</strong>
-                <span>پاسخگویی به مشتریان</span>
-            </div>
-        </div>
-
-    </div>
+ <div class="feature">
+  <div class="feature-icon">☎</div>
+  <strong>پشتیبانی</strong>
+  <span>ارتباط مستقیم</span>
+ </div>
 
 </section>
 
 
-<!-- MAIN -->
-<main class="container">
+<!-- CATEGORIES -->
+<section class="section" id="categories">
 
+ <div class="section-top">
+  <h2 class="title">دسته‌بندی محصولات</h2>
+ </div>
 
-    <!-- CATEGORIES -->
-    <section class="section">
+ <div class="categories">
 
-        <div class="section-head">
+  <a class="category" href="#products" onclick="setCategory('همه')">
+   <div class="category-icon">▦</div>
+   <span>همه محصولات</span>
+  </a>
 
-            <h2 class="section-title">
-                دسته‌بندی‌ها
-            </h2>
+  <a class="category" href="#products" onclick="setCategory('ماگ')">
+   <div class="category-icon">☕</div>
+   <span>ماگ</span>
+  </a>
 
-        </div>
+  <a class="category" href="#products" onclick="setCategory('فلاسک')">
+   <div class="category-icon">▣</div>
+   <span>فلاسک</span>
+  </a>
 
+  <a class="category" href="#products" onclick="setCategory('لوازم')">
+   <div class="category-icon">◆</div>
+   <span>لوازم کاربردی</span>
+  </a>
 
-        <div class="categories">
+  <a class="category" href="#products" onclick="setCategory('ویژه')">
+   <div class="category-icon">★</div>
+   <span>پیشنهاد ویژه</span>
+  </a>
 
-            <a href="#products" class="category">
-                <div class="category-icon">☕</div>
-                <span>ماگ</span>
-            </a>
+ </div>
+</section>
 
-            <a href="#products" class="category">
-                <div class="category-icon">▣</div>
-                <span>فلاسک</span>
-            </a>
 
-            <a href="#products" class="category">
-                <div class="category-icon">◆</div>
-                <span>لوازم کاربردی</span>
-            </a>
+<!-- DEAL -->
+<section class="section" id="special">
 
-            <a href="#products" class="category">
-                <div class="category-icon">★</div>
-                <span>پیشنهاد ویژه</span>
-            </a>
+ <div class="deal">
+  <div>
+   <h2>پیشنهاد ویژه گلدن ماگ</h2>
+   <p>برای مدت محدود محصولات منتخب با تخفیف ارائه می‌شوند.</p>
+  </div>
 
-        </div>
+  <div class="timer">
+   <div class="time"><b id="hours">12</b><span>ساعت</span></div>
+   <div class="time"><b id="minutes">00</b><span>دقیقه</span></div>
+   <div class="time"><b id="seconds">00</b><span>ثانیه</span></div>
+  </div>
+ </div>
 
-    </section>
+</section>
 
 
-    <!-- SPECIAL PRODUCTS -->
-    <section class="section" id="special">
+<!-- PRODUCTS -->
+<section class="section" id="products">
 
-        <div class="section-head">
+ <div class="section-top">
+  <h2 class="title">محصولات گلدن ماگ</h2>
+  <span class="view" id="resultCount"></span>
+ </div>
 
-            <h2 class="section-title">
-                پیشنهادهای ویژه
-            </h2>
+ <div class="toolbar">
 
-            <a href="#products" class="view-all">
-                مشاهده همه
-            </a>
+  <button class="filter-btn active" onclick="setCategory('همه')" id="filter-all">
+   همه
+  </button>
 
-        </div>
+  <button class="filter-btn" onclick="setCategory('ماگ')" id="filter-mug">
+   ماگ
+  </button>
 
+  <button class="filter-btn" onclick="setCategory('فلاسک')" id="filter-flask">
+   فلاسک
+  </button>
 
-        <div class="products" id="products">
+  <button class="filter-btn" onclick="setCategory('لوازم')" id="filter-tools">
+   لوازم
+  </button>
 
+  <select class="sort" onchange="sortProducts(this.value)">
+   <option value="default">مرتب‌سازی</option>
+   <option value="cheap">ارزان‌ترین</option>
+   <option value="expensive">گران‌ترین</option>
+   <option value="rating">محبوب‌ترین</option>
+   <option value="new">جدیدترین</option>
+  </select>
 
-            <!-- PRODUCT 1 -->
-            <div class="card product-card">
+ </div>
 
-                <div class="badge">
-                    ویژه
-                </div>
+ <div class="products" id="productGrid"></div>
 
-                <div class="product-image">
+</section>
 
-                    <img
-                        src="images.jpng.jpg"
-                        alt="ماگ باب اسفنجی"
-                    >
 
-                </div>
+<!-- POPULAR -->
+<section class="section" id="popular">
 
-                <h3>
-                    ماگ باب اسفنجی
-                </h3>
+ <div class="section-top">
+  <h2 class="title">محبوب‌ترین محصولات</h2>
+ </div>
 
-                <div class="rating">
-                    ★★★★★
-                    <span>محبوب</span>
-                </div>
+ <div id="popularGrid" class="products"></div>
 
-                <div class="old-price">
-                    230000 تومان
-                </div>
-
-                <div class="price-row">
-
-                    <div>
-                        <span class="price">
-                            200000
-                        </span>
-
-                        <span class="price-unit">
-                            تومان
-                        </span>
-                    </div>
-
-                    <span class="discount">
-                        13٪
-                    </span>
-
-                </div>
-
-                <button
-                    class="buy-btn"
-                    onclick="buyProduct('ماگ باب اسفنجی')"
-                >
-                    خرید محصول
-                </button>
-
-            </div>
-
-
-            <!-- PRODUCT 2 -->
-            <div class="card product-card">
-
-                <div class="badge">
-                    ویژه
-                </div>
-
-                <div class="product-image">
-
-                    <img
-                        src="Untitled.jpg"
-                        alt="فلاسک"
-                    >
-
-                </div>
-
-                <h3>
-                    فلاسک
-                </h3>
-
-                <div class="rating">
-                    ★★★★★
-                    <span>محبوب</span>
-                </div>
-
-                <div class="old-price">
-                    450000 تومان
-                </div>
-
-                <div class="price-row">
-
-                    <div>
-                        <span class="price">
-                            400000
-                        </span>
-
-                        <span class="price-unit">
-                            تومان
-                        </span>
-                    </div>
-
-                    <span class="discount">
-                        11٪
-                    </span>
-
-                </div>
-
-                <button
-                    class="buy-btn"
-                    onclick="buyProduct('فلاسک')"
-                >
-                    خرید محصول
-                </button>
-
-            </div>
-
-
-            <!-- PRODUCT 3 -->
-            <div class="card product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="kaha.png"
-                        alt="برس"
-                    >
-
-                </div>
-
-                <h3>
-                    برس
-                </h3>
-
-                <div class="rating">
-                    ★★★★★
-                    <span>محصول جدید</span>
-                </div>
-
-                <div class="old-price">
-                    450000 تومان
-                </div>
-
-                <div class="price-row">
-
-                    <div>
-                        <span class="price">
-                            400000
-                        </span>
-
-                        <span class="price-unit">
-                            تومان
-                        </span>
-                    </div>
-
-                    <span class="discount">
-                        11٪
-                    </span>
-
-                </div>
-
-                <button
-                    class="buy-btn"
-                    onclick="buyProduct('برس')"
-                >
-                    خرید محصول
-                </button>
-
-            </div>
-
-
-            <!-- EMPTY / FUTURE PRODUCT -->
-            <div class="card">
-
-                <div class="product-image">
-
-                    <div style="
-                        width:100%;
-                        height:100%;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        background:#fafafa;
-                        border-radius:10px;
-                        color:#999;
-                        font-size:13px;
-                        text-align:center;
-                        padding:20px;
-                    ">
-                        محصول جدید شما
-                        <br>
-                        به‌زودی
-                    </div>
-
-                </div>
-
-                <h3>
-                    محصول جدید
-                </h3>
-
-                <div class="rating">
-                    ★★★★★
-                </div>
-
-                <div class="price-row">
-
-                    <div>
-                        <span class="price">
-                            ---
-                        </span>
-
-                    </div>
-
-                </div>
-
-                <button
-                    class="buy-btn"
-                    onclick="alert('این محصول هنوز موجود نشده است.')"
-                >
-                    به‌زودی
-                </button>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-</main>
+</section>
 
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="section" id="contact">
 
-    <div class="contact-box">
+ <div class="section-top">
+  <h2 class="title">تماس با گلدن ماگ</h2>
+ </div>
 
-        <h2 class="contact-title">
-            اطلاعات تماس
-        </h2>
+ <div class="contact-grid">
 
-        <div class="contact-grid">
+  <div class="contact-card">
+   <h3>شماره تماس</h3>
+   <p>
+    09100441317<br>
+    09394634895
+   </p>
+  </div>
 
-            <div class="contact-card">
+  <div class="contact-card">
+   <h3>آدرس</h3>
+   <p>اردبیل، میدان یحیوی</p>
+  </div>
 
-                <h3>
-                    شماره تماس
-                </h3>
+  <div class="contact-card">
+   <h3>ساعت کاری</h3>
+   <p>
+    همه روزه<br>
+    ۹ صبح تا ۱۰ شب
+   </p>
+  </div>
 
-                <p>
-                    09100441317
-                    <br>
-                    09394634895
-                </p>
-
-            </div>
-
-
-            <div class="contact-card">
-
-                <h3>
-                    آدرس
-                </h3>
-
-                <p>
-                    اردبیل، میدان یحیوی
-                </p>
-
-            </div>
-
-
-            <div class="contact-card">
-
-                <h3>
-                    ساعت کاری
-                </h3>
-
-                <p>
-                    همه روزه
-                    <br>
-                    ۹ صبح تا ۱۰ شب
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+ </div>
 
 </section>
+
+</main>
 
 
 <!-- FOOTER -->
 <footer>
 
-    <div class="footer-main">
+ <div class="footer-main">
 
-        <div class="footer-column">
+  <div class="footer-col">
+   <div class="footer-logo">گلدن ماگ</div>
+   <p>
+    فروشگاه اینترنتی گلدن ماگ؛
+    ارائه‌دهنده ماگ، فلاسک و محصولات کاربردی.
+   </p>
+  </div>
 
-            <div class="footer-logo">
-                گلدن ماگ
-            </div>
+  <div class="footer-col">
+   <h3>دسترسی سریع</h3>
+   <a href="#">خانه</a>
+   <a href="#products">محصولات</a>
+   <a href="#special">پیشنهاد ویژه</a>
+   <a href="#contact">تماس با ما</a>
+  </div>
 
-            <p>
-                فروشگاه اینترنتی گلدن ماگ
-                با هدف ارائه ماگ، فلاسک و
-                محصولات کاربردی با کیفیت و
-                قیمت مناسب.
-            </p>
+  <div class="footer-col">
+   <h3>خدمات</h3>
+   <a href="#products">جستجوی محصول</a>
+   <a href="#products">فیلتر محصولات</a>
+   <a href="#products">سبد خرید</a>
+   <a href="#products">مقایسه محصولات</a>
+  </div>
 
-        </div>
+  <div class="footer-col">
+   <h3>ارتباط</h3>
+   <p>09100441317</p>
+   <p>09394634895</p>
+   <p>اردبیل، میدان یحیوی</p>
+  </div>
 
+ </div>
 
-        <div class="footer-column">
-
-            <h3>
-                دسترسی سریع
-            </h3>
-
-            <a href="#">
-                صفحه اصلی
-            </a>
-
-            <a href="#products">
-                محصولات
-            </a>
-
-            <a href="#special">
-                پیشنهاد ویژه
-            </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h3>
-                حساب کاربری
-            </h3>
-
-            <a href="profile.html">
-                پروفایل
-            </a>
-
-            <a href="admin.html">
-                مدیریت
-            </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h3>
-                تماس
-            </h3>
-
-            <p>
-                09100441317
-            </p>
-
-            <p>
-                09394634895
-            </p>
-
-            <p>
-                اردبیل، میدان یحیوی
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 به مدیریت یوسفی — گلدن ماگ
-        — تمامی حقوق محفوظ است
-
-    </div>
+ <div class="footer-bottom">
+  © 2026 به مدیریت یوسفی — گلدن ماگ — تمامی حقوق محفوظ است
+ </div>
 
 </footer>
+
+
+<!-- CART -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="drawer" id="drawer">
+
+ <div class="drawer-head">
+  <h2>سبد خرید</h2>
+  <button class="close" onclick="closeCart()">×</button>
+ </div>
+
+ <div class="cart-items" id="cartItems"></div>
+
+ <div class="cart-bottom">
+  <div class="total">
+   <span>مجموع:</span>
+   <span id="cartTotal">0 تومان</span>
+  </div>
+
+  <button class="checkout" onclick="checkout()">
+   ثبت سفارش در روبیکا
+  </button>
+ </div>
+
+</aside>
+
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal-wrap" id="detailModal">
+
+ <div class="modal">
+
+  <div class="modal-head">
+   <h2>جزئیات محصول</h2>
+   <button class="close" onclick="closeDetail()">×</button>
+  </div>
+
+  <div class="detail">
+
+   <div class="detail-image">
+    <img id="detailImage" src="" alt="">
+   </div>
+
+   <div>
+
+    <h2 id="detailName"></h2>
+
+    <div class="rating" id="detailRating"></div>
+
+    <div class="price" id="detailPrice"></div>
+
+    <p class="detail-desc" id="detailDesc"></p>
+
+    <div class="specs">
+     <div class="spec">
+      <span>وضعیت</span>
+      <b>موجود</b>
+     </div>
+     <div class="spec">
+      <span>دسته‌بندی</span>
+      <b id="detailCategory"></b>
+     </div>
+     <div class="spec">
+      <span>ارسال</span>
+      <b>هماهنگی با فروشنده</b>
+     </div>
+    </div>
+
+    <button class="buy" id="detailBuy">
+     افزودن به سبد خرید
+    </button>
+
+   </div>
+
+  </div>
+
+ </div>
+</div>
+
+
+<!-- RATING MODAL -->
+<div class="modal-wrap" id="ratingModal">
+
+ <div class="modal" style="max-width:420px">
+
+  <div class="modal-head">
+   <h2>امتیاز به محصول</h2>
+   <button class="close" onclick="closeRating()">×</button>
+  </div>
+
+  <p id="ratingProductName" style="font-size:13px"></p>
+
+  <div class="stars" id="stars">
+   <button class="star" onclick="selectRating(1)">★</button>
+   <button class="star" onclick="selectRating(2)">★</button>
+   <button class="star" onclick="selectRating(3)">★</button>
+   <button class="star" onclick="selectRating(4)">★</button>
+   <button class="star" onclick="selectRating(5)">★</button>
+  </div>
+
+  <button class="checkout" onclick="saveRating()">
+   ثبت امتیاز
+  </button>
+
+ </div>
+</div>
+
+
+<!-- COMPARE MODAL -->
+<div class="modal-wrap" id="compareModal">
+
+ <div class="modal" style="max-width:750px">
+
+  <div class="modal-head">
+   <h2>مقایسه محصولات</h2>
+   <button class="close" onclick="closeCompare()">×</button>
+  </div>
+
+  <div id="compareContent"></div>
+
+ </div>
+</div>
+
+
+<!-- FLOATING -->
+<div class="floating">
+
+ <button class="float-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  ↑
+ </button>
+
+ <button class="float-btn" onclick="openCart()">
+  🛒
+ </button>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
 
 
 <script>
 
 /* =========================
-   SEARCH
+   PRODUCTS
 ========================= */
 
-function searchProducts(){
+const products = [
 
-    const input =
-        document.getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+ {
+  id:1,
+  name:"ماگ باب اسفنجی",
+  category:"ماگ",
+  price:200000,
+  oldPrice:230000,
+  discount:13,
+  image:"images.jpng.jpg",
+  rating:4.8,
+  reviews:12,
+  badge:"ویژه",
+  desc:"ماگ جذاب باب اسفنجی برای استفاده روزمره و هدیه."
+ },
 
-    const products =
-        document.querySelectorAll(".product-card");
+ {
+  id:2,
+  name:"فلاسک",
+  category:"فلاسک",
+  price:400000,
+  oldPrice:450000,
+  discount:11,
+  image:"Untitled.jpg",
+  rating:4.9,
+  reviews:18,
+  badge:"پرفروش",
+  desc:"فلاسک کاربردی مناسب استفاده روزانه، محل کار و سفر."
+ },
 
-    products.forEach(function(card){
+ {
+  id:3,
+  name:"برس",
+  category:"لوازم",
+  price:400000,
+  oldPrice:450000,
+  discount:11,
+  image:"kaha.png",
+  rating:4.6,
+  reviews:7,
+  badge:"جدید",
+  desc:"برس کاربردی با طراحی مناسب برای استفاده روزمره."
+ }
 
-        const name =
-            card.querySelector("h3")
-            .innerText
-            .toLowerCase();
+];
 
-        if(name.includes(input)){
 
-            card.style.display = "";
+/* =========================
+   STATE
+========================= */
 
-        }else{
+let currentCategory="همه";
+let currentSort="default";
+let cart=JSON.parse(localStorage.getItem("goldenCart") || "[]");
+let favorites=JSON.parse(localStorage.getItem("goldenFavorites") || "[]");
+let compare=JSON.parse(localStorage.getItem("goldenCompare") || "[]");
+let ratings=JSON.parse(localStorage.getItem("goldenRatings") || "{}");
 
-            card.style.display = "none";
+let selectedRating=0;
+let ratingProductId=null;
 
-        }
 
-    });
+/* =========================
+   FORMAT
+========================= */
+
+function money(number){
+ return number.toLocaleString("fa-IR")+" تومان";
+}
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(){
+
+ const search=document.getElementById("searchInput").value
+  .trim()
+  .toLowerCase();
+
+ let list=products.filter(function(p){
+
+  const categoryOK =
+   currentCategory==="همه" ||
+   p.category===currentCategory ||
+   (currentCategory==="ویژه" && p.badge);
+
+  const searchOK =
+   p.name.toLowerCase().includes(search);
+
+  return categoryOK && searchOK;
+
+ });
+
+
+ if(currentSort==="cheap"){
+  list.sort((a,b)=>a.price-b.price);
+ }
+
+ if(currentSort==="expensive"){
+  list.sort((a,b)=>b.price-a.price);
+ }
+
+ if(currentSort==="rating"){
+  list.sort((a,b)=>b.rating-a.rating);
+ }
+
+ if(currentSort==="new"){
+  list.sort((a,b)=>b.id-a.id);
+ }
+
+
+ const grid=document.getElementById("productGrid");
+
+ document.getElementById("resultCount").innerText=
+  list.length+" محصول";
+
+
+ if(!list.length){
+
+  grid.innerHTML=
+   '<div class="no-result">محصولی با این مشخصات پیدا نشد.</div>';
+
+  return;
+ }
+
+
+ grid.innerHTML=list.map(createCard).join("");
 
 }
 
 
 /* =========================
-   BUY
+   PRODUCT CARD
 ========================= */
 
-function buyProduct(productName){
+function createCard(p){
 
-    const message =
-        "سلام، برای خرید «" +
-        productName +
-        "» پیام می‌دهم.";
+ const fav=favorites.includes(p.id);
+ const comp=compare.includes(p.id);
 
-    const url =
-        "https://rubika.ir/sajad_yousefi1317";
+ return `
+ <div class="card">
 
-    window.location.href = url;
+  ${p.badge ? `<div class="badge">${p.badge}</div>` : ""}
+
+  <button class="heart ${fav?"active":""}"
+   onclick="toggleFavorite(${p.id})">
+   ${fav?"♥":"♡"}
+  </button>
+
+  <button class="compare ${comp?"active":""}"
+   onclick="toggleCompare(${p.id})">
+   ${comp?"✓ مقایسه":"مقایسه"}
+  </button>
+
+  <div class="product-image"
+   onclick="openDetail(${p.id})"
+   style="cursor:pointer">
+
+   <img src="${p.image}" alt="${p.name}"
+    onerror="this.style.opacity='.2'">
+
+  </div>
+
+  <h3>${p.name}</h3>
+
+  <div class="rating"
+   onclick="openRating(${p.id})">
+   ${stars(p.rating)}
+   <span>${p.reviews} نظر</span>
+  </div>
+
+  <div class="old">
+   ${money(p.oldPrice)}
+  </div>
+
+  <div class="price-row">
+
+   <div>
+    <span class="price">${p.price.toLocaleString("fa-IR")}</span>
+    <span class="unit">تومان</span>
+   </div>
+
+   <span class="discount">${p.discount}٪</span>
+
+  </div>
+
+  <div class="stock">
+   ✓ موجود
+  </div>
+
+  <button class="buy" onclick="addToCart(${p.id})">
+   افزودن به سبد خرید
+  </button>
+
+ </div>
+ `;
+}
+
+
+function stars(value){
+
+ let result="";
+
+ for(let i=1;i<=5;i++){
+  result += i<=Math.round(value) ? "★" : "☆";
+ }
+
+ return result;
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+function setCategory(category){
+
+ currentCategory=category;
+
+ document.querySelectorAll(".filter-btn")
+ .forEach(b=>b.classList.remove("active"));
+
+ if(category==="همه")
+  document.getElementById("filter-all").classList.add("active");
+
+ if(category==="ماگ")
+  document.getElementById("filter-mug").classList.add("active");
+
+ if(category==="فلاسک")
+  document.getElementById("filter-flask").classList.add("active");
+
+ if(category==="لوازم")
+  document.getElementById("filter-tools").classList.add("active");
+
+ renderProducts();
+}
+
+
+/* =========================
+   SORT
+========================= */
+
+function sortProducts(value){
+
+ currentSort=value;
+ renderProducts();
 
 }
 
 
 /* =========================
-   CART COUNTER
+   FAVORITES
 ========================= */
 
-let cartCount = 0;
+function toggleFavorite(id){
 
-function addToCart(){
+ if(favorites.includes(id)){
+  favorites=favorites.filter(x=>x!==id);
+  showToast("از علاقه‌مندی‌ها حذف شد");
+ }else{
+  favorites.push(id);
+  showToast("به علاقه‌مندی‌ها اضافه شد");
+ }
 
-    cartCount++;
+ localStorage.setItem(
+  "goldenFavorites",
+  JSON.stringify(favorites)
+ );
 
-    document.getElementById("cartCount")
-        .innerText = cartCount;
+ renderProducts();
+}
+
+
+/* =========================
+   COMPARE
+========================= */
+
+function toggleCompare(id){
+
+ if(compare.includes(id)){
+
+  compare=compare.filter(x=>x!==id);
+  showToast("از مقایسه حذف شد");
+
+ }else{
+
+  if(compare.length>=3){
+   showToast("حداکثر ۳ محصول را مقایسه کنید");
+   return;
+  }
+
+  compare.push(id);
+  showToast("به مقایسه اضافه شد");
+
+ }
+
+ localStorage.setItem(
+  "goldenCompare",
+  JSON.stringify(compare)
+ );
+
+ renderProducts();
+
+ if(compare.length>=2){
+  openCompare();
+ }
 
 }
+
+
+/* =========================
+   COMPARE WINDOW
+========================= */
+
+function openCompare(){
+
+ const selected=products.filter(
+  p=>compare.includes(p.id)
+ );
+
+ document.getElementById("compareContent").innerHTML=`
+
+ <table style="
+ width:100%;
+ border-collapse:collapse;
+ font-size:12px;
+ text-align:center;
+ ">
+
+ <tr>
+  <th style="padding:12px;border:1px solid var(--line)">ویژگی</th>
+  ${selected.map(p=>`
+   <th style="padding:12px;border:1px solid var(--line)">
+    ${p.name}
+   </th>
+  `).join("")}
+ </tr>
+
+ <tr>
+  <td style="padding:12px;border:1px solid var(--line)">قیمت</td>
+  ${selected.map(p=>`
+   <td style="padding:12px;border:1px solid var(--line)">
+    ${money(p.price)}
+   </td>
+  `).join("")}
+ </tr>
+
+ <tr>
+  <td style="padding:12px;border:1px solid var(--line)">امتیاز</td>
+  ${selected.map(p=>`
+   <td style="padding:12px;border:1px solid var(--line)">
+    ${p.rating} از ۵
+   </td>
+  `).join("")}
+ </tr>
+
+ <tr>
+  <td style="padding:12px;border:1px solid var(--line)">دسته‌بندی</td>
+  ${selected.map(p=>`
+   <td style="padding:12px;border:1px solid var(--line)">
+    ${p.category}
+   </td>
+  `).join("")}
+ </tr>
+
+ </table>
+
+ <button
+  class="buy"
+  style="margin-top:15px"
+  onclick="clearCompare()">
+  پاک کردن مقایسه
+ </button>
+
+ `;
+
+ document.getElementById("compareModal")
+ .classList.add("show");
+}
+
+
+function closeCompare(){
+ document.getElementById("compareModal")
+ .classList.remove("show");
+}
+
+
+function clearCompare(){
+
+ compare=[];
+
+ localStorage.setItem(
+  "goldenCompare",
+  JSON.stringify(compare)
+ );
+
+ closeCompare();
+ renderProducts();
+ showToast("مقایسه پاک شد");
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addToCart(id){
+
+ const existing=cart.find(x=>x.id===id);
+
+ if(existing){
+  existing.qty++;
+ }else{
+  cart.push({id:id,qty:1});
+ }
+
+ saveCart();
+ updateCart();
+ showToast("محصول به سبد خرید اضافه شد");
+
+}
+
+
+function saveCart(){
+
+ localStorage.setItem(
+  "goldenCart",
+  JSON.stringify(cart)
+ );
+
+}
+
+
+function updateCart(){
+
+ let count=0;
+
+ cart.forEach(x=>count+=x.qty);
+
+ document.getElementById("cartCount")
+ .innerText=count;
+
+
+ const box=document.getElementById("cartItems");
+
+ if(cart.length===0){
+
+  box.innerHTML=
+   '<div class="empty">سبد خرید شما خالی است.</div>';
+
+  document.getElementById("cartTotal")
+   .innerText="0 تومان";
+
+  return;
+ }
+
+
+ let total=0;
+
+ box.innerHTML=cart.map(item=>{
+
+  const p=products.find(x=>x.id===item.id);
+
+  if(!p)return "";
+
+  total += p.price*item.qty;
+
+  return `
+   <div class="cart-item">
+
+    <img src="${p.image}" alt="${p.name}">
+
+    <div>
+     <h4>${p.name}</h4>
+     <div class="cart-price">${money(p.price)}</div>
+
+     <div class="qty">
+
+      <button onclick="changeQty(${p.id},1)">+</button>
+
+      <span>${item.qty}</span>
+
+      <button onclick="changeQty(${p.id},-1)">−</button>
+
+     </div>
+
+    </div>
+
+    <button class="remove"
+     onclick="removeFromCart(${p.id})">
+     حذف
+    </button>
+
+   </div>
+  `;
+
+ }).join("");
+
+ document.getElementById("cartTotal")
+  .innerText=money(total);
+
+}
+
+
+function changeQty(id,change){
+
+ const item=cart.find(x=>x.id===id);
+
+ if(!item)return;
+
+ item.qty+=change;
+
+ if(item.qty<=0){
+  cart=cart.filter(x=>x.id!==id);
+ }
+
+ saveCart();
+ updateCart();
+
+}
+
+
+function removeFromCart(id){
+
+ cart=cart.filter(x=>x.id!==id);
+
+ saveCart();
+ updateCart();
+
+ showToast("محصول حذف شد");
+
+}
+
+
+function openCart(){
+
+ updateCart();
+
+ document.getElementById("drawer")
+  .classList.add("open");
+
+ document.getElementById("overlay")
+  .classList.add("show");
+
+}
+
+
+function closeCart(){
+
+ document.getElementById("drawer")
+  .classList.remove("open");
+
+ document.getElementById("overlay")
+  .classList.remove("show");
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkout(){
+
+ if(cart.length===0){
+  showToast("سبد خرید خالی است");
+  return;
+ }
+
+ let message="سلام، برای سفارش محصولات گلدن ماگ پیام می‌دهم:%0A%0A";
+
+ cart.forEach(item=>{
+
+  const p=products.find(x=>x.id===item.id);
+
+  message +=
+   p.name+
+   " × "+
+   item.qty+
+   " = "+
+   p.price*item.qty+
+   " تومان%0A";
+
+ });
+
+ message+="%0Aلطفاً برای ثبت سفارش راهنمایی کنید.";
+
+ window.location.href=
+  "https://rubika.ir/sajad_yousefi1317";
+
+}
+
+
+/* =========================
+   DETAIL
+========================= */
+
+function openDetail(id){
+
+ const p=products.find(x=>x.id===id);
+
+ if(!p)return;
+
+ document.getElementById("detailImage").src=p.image;
+ document.getElementById("detailName").innerText=p.name;
+ document.getElementById("detailRating").innerText=
+  stars(p.rating)+"  "+p.rating+" از ۵";
+ document.getElementById("detailPrice").innerText=
+  money(p.price);
+ document.getElementById("detailDesc").innerText=p.desc;
+ document.getElementById("detailCategory").innerText=p.category;
+
+ document.getElementById("detailBuy").onclick=function(){
+  addToCart(id);
+  closeDetail();
+ };
+
+ document.getElementById("detailModal")
+  .classList.add("show");
+
+}
+
+
+function closeDetail(){
+
+ document.getElementById("detailModal")
+  .classList.remove("show");
+
+}
+
+
+/* =========================
+   RATING
+========================= */
+
+function openRating(id){
+
+ ratingProductId=id;
+ selectedRating=0;
+
+ const p=products.find(x=>x.id===id);
+
+ document.getElementById("ratingProductName")
+  .innerText="امتیاز شما به: "+p.name;
+
+ document.querySelectorAll(".star")
+  .forEach(x=>x.classList.remove("selected"));
+
+ document.getElementById("ratingModal")
+  .classList.add("show");
+
+}
+
+
+function selectRating(value){
+
+ selectedRating=value;
+
+ document.querySelectorAll(".star")
+ .forEach((star,index)=>{
+
+  star.classList.toggle(
+   "selected",
+   index<value
+  );
+
+ });
+
+}
+
+
+function saveRating(){
+
+ if(!selectedRating){
+  showToast("لطفاً تعداد ستاره را انتخاب کنید");
+  return;
+ }
+
+ ratings[ratingProductId]=selectedRating;
+
+ localStorage.setItem(
+  "goldenRatings",
+  JSON.stringify(ratings)
+ );
+
+ const p=products.find(x=>x.id===ratingProductId);
+
+ if(p){
+  p.rating=selectedRating;
+ }
+
+ closeRating();
+
+ renderProducts();
+
+ showToast("امتیاز شما ثبت شد");
+
+}
+
+
+function closeRating(){
+
+ document.getElementById("ratingModal")
+  .classList.remove("show");
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDark(){
+
+ document.body.classList.toggle("dark");
+
+ localStorage.setItem(
+  "goldenDark",
+  document.body.classList.contains("dark")
+ );
+
+}
+
+
+/* =========================
+   HERO SLIDER
+========================= */
+
+let slideIndex=0;
+
+function slideTo(index){
+
+ const slides=document.querySelectorAll(".slide");
+ const dots=document.querySelectorAll(".dot");
+
+ slides.forEach(x=>x.classList.remove("active"));
+ dots.forEach(x=>x.classList.remove("active"));
+
+ slideIndex=index;
+
+ slides[index].classList.add("active");
+ dots[index].classList.add("active");
+
+}
+
+
+setInterval(function(){
+
+ slideIndex++;
+
+ if(slideIndex>=2)slideIndex=0;
+
+ slideTo(slideIndex);
+
+},5000);
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+let secondsLeft=12*60*60;
+
+function countdown(){
+
+ let h=Math.floor(secondsLeft/3600);
+ let m=Math.floor((secondsLeft%3600)/60);
+ let s=secondsLeft%60;
+
+ document.getElementById("hours").innerText=
+  String(h).padStart(2,"0");
+
+ document.getElementById("minutes").innerText=
+  String(m).padStart(2,"0");
+
+ document.getElementById("seconds").innerText=
+  String(s).padStart(2,"0");
+
+ secondsLeft--;
+
+ if(secondsLeft<0){
+  secondsLeft=12*60*60;
+ }
+
+}
+
+setInterval(countdown,1000);
+countdown();
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(text){
+
+ const toast=document.getElementById("toast");
+
+ toast.innerText=text;
+ toast.classList.add("show");
+
+ clearTimeout(toastTimer);
+
+ toastTimer=setTimeout(function(){
+  toast.classList.remove("show");
+ },2200);
+
+}
+
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+window.addEventListener("scroll",function(){
+
+ const btn=document.getElementById("topBtn");
+
+ if(window.scrollY>500){
+  btn.classList.add("show");
+ }else{
+  btn.classList.remove("show");
+ }
+
+});
+
+
+/* =========================
+   GO PRODUCTS
+========================= */
+
+function goProducts(){
+
+ document.getElementById("products")
+ .scrollIntoView({
+  behavior:"smooth"
+ });
+
+}
+
+
+/* =========================
+   LOAD
+========================= */
+
+if(localStorage.getItem("goldenDark")==="true"){
+ document.body.classList.add("dark");
+}
+
+renderProducts();
+updateCart();
 
 </script>
 
