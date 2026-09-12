@@ -1,3 +1,68 @@
+آره داداش، نسخه v10 مخصوص موبایل رو آماده کردم؛ ظاهرش هم تمیزتر و مدرن‌تر شده:
+
+    طراحی مخصوص صفحه‌های کوچک
+
+    منوی افقی لمسی
+
+    کارت محصولات مناسب موبایل
+
+    نوار دسترسی سریع پایین صفحه
+
+    دکمه‌های بزرگ‌تر برای لمس
+
+    Hero واکنش‌گرا
+
+    سبد خرید مناسب موبایل
+
+    مودال‌های سازگار با گوشی
+
+    انیمیشن‌های سبک‌تر برای موبایل
+
+    همچنان بدون وابستگی به فونت آنلاین، برای ویندوز ۷
+
+اگر بخوای، می‌تونم حتی
+ظاهر نسخه موبایل رو شبیه یک اپلیکیشن فروشگاهی حرفه‌ای طراحی کنم.
+
+Today 12:18 PM
+مشکلاتش اینه این صفحه اولی که لود میکنه نباشه و مثلا تایمه رو حذف کن و مناسب گوشی باشه 
+
+حتماً. دقیقاً این تغییرات رو می‌خوای:
+
+    صفحه‌ی لودینگ اول کلاً حذف بشه
+
+    تایمر/زمان پیشنهاد ویژه حذف بشه
+
+    طراحی موبایل خیلی بهتر و جمع‌وجورتر بشه
+
+    دکمه‌ها برای لمس مناسب‌تر بشن
+
+    محصولات روی گوشی مرتب و خوانا باشن
+
+    پایین صفحه یک نوار دسترسی سریع موبایلی داشته باشه
+
+    ظاهر کلی Golden Mug همچنان زرد و قرمز و حرفه‌ای بمونه
+
+فقط ساخت فایل جدید این بار کامل انجام نشد، بنابراین لینک الکی نمی‌دم. اگر بخوای، در پیام بعدی
+نسخه‌ی v11 تمیز و موبایل‌محور رو از روی فایل فعلی می‌سازم و لینک مستقیمش رو می‌دم.
+
+نسخه‌ی v11 تمیز و موبایل‌محور را بساز و لینک مستقیمش را بده
+
+آماده شد؛ نسخه v11 تمیز و موبایل‌محور:
+
+    صفحه لودینگ اول حذف شد
+
+    تایمر و بخش زمان‌دار حذف شد
+
+    ظاهر موبایل جمع‌وجورتر و حرفه‌ای‌تر شد
+
+    نوار پایین مخصوص گوشی اضافه شد
+
+    محصولات برای لمس و صفحه کوچک بهینه شدند
+
+    جستجو و دکمه‌ها برای موبایل بهتر شدند
+
+لینک مستقیم
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -1265,6 +1330,287 @@ button,.btn,a{-webkit-tap-highlight-color:transparent}
 .logo{font-size:20px!important}
 }
 
+
+/* =====================================================
+   GOLDEN MUG v11 — CLEAN MOBILE FIRST
+===================================================== */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+
+@media(max-width:768px){
+  body{
+    font-size:14px;
+    padding-bottom:76px;
+  }
+
+  /* نوار بالایی غیرضروری حذف */
+  .top{display:none!important}
+
+  header{
+    position:sticky!important;
+    top:0!important;
+    z-index:5000!important;
+    box-shadow:0 5px 25px rgba(0,0,0,.10)!important;
+  }
+
+  header>.container,.header>.container{
+    padding:10px 12px!important;
+  }
+
+  .logo{
+    font-size:21px!important;
+    line-height:1.2!important;
+    flex:1;
+    min-width:0;
+  }
+
+  .actions{gap:6px!important}
+  .action{
+    width:42px!important;
+    min-width:42px!important;
+    height:42px!important;
+    padding:0!important;
+    border-radius:13px!important;
+  }
+  .action span{display:none!important}
+
+  .search{
+    order:3!important;
+    width:100%!important;
+    flex:0 0 100%!important;
+    height:45px!important;
+    margin-top:2px!important;
+    border-radius:15px!important;
+  }
+  .search input{
+    font-size:16px!important;
+  }
+
+  /* منوی لمسی */
+  .nav{
+    display:flex!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    white-space:nowrap!important;
+    gap:6px!important;
+    padding:7px 10px!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{
+    flex:0 0 auto!important;
+    min-height:37px!important;
+    padding:7px 13px!important;
+    border-radius:12px!important;
+    font-size:12px!important;
+  }
+  .nav a:after{display:none!important}
+
+  .container{
+    width:100%!important;
+    max-width:none!important;
+    padding-left:12px!important;
+    padding-right:12px!important;
+  }
+
+  section{scroll-margin-top:125px}
+
+  /* هیرو */
+  .hero{
+    min-height:315px!important;
+    height:auto!important;
+    margin:0!important;
+    border-radius:0 0 25px 25px!important;
+    overflow:hidden!important;
+  }
+  .hero img{
+    height:315px!important;
+    min-height:315px!important;
+    object-fit:cover!important;
+  }
+  .hero-content{
+    padding:23px 16px!important;
+  }
+  .hero h1{
+    font-size:26px!important;
+    line-height:1.4!important;
+  }
+  .hero p{
+    font-size:13px!important;
+    line-height:1.9!important;
+  }
+  .hero .btn,.hero button{
+    min-height:45px!important;
+    padding:9px 16px!important;
+    border-radius:14px!important;
+  }
+
+  .section-top .title{font-size:20px!important}
+
+  /* دسته‌ها و امکانات: اسکرول افقی مناسب انگشت */
+  .features,.feature-grid,.categories,.category-grid{
+    display:flex!important;
+    overflow-x:auto!important;
+    gap:11px!important;
+    padding:3px 2px 12px!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch;
+  }
+  .features::-webkit-scrollbar,
+  .feature-grid::-webkit-scrollbar,
+  .categories::-webkit-scrollbar,
+  .category-grid::-webkit-scrollbar{display:none}
+
+  .feature,.category{
+    flex:0 0 150px!important;
+    min-width:150px!important;
+    border-radius:18px!important;
+  }
+
+  /* محصولات: کارت‌های عمودی و کاملاً مناسب گوشی */
+  .products-grid,#productsGrid{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:14px!important;
+  }
+
+  .product-card{
+    width:100%!important;
+    min-height:158px!important;
+    display:grid!important;
+    grid-template-columns:108px minmax(0,1fr)!important;
+    border-radius:20px!important;
+    overflow:hidden!important;
+  }
+
+  .product-image{
+    width:108px!important;
+    height:158px!important;
+    min-height:158px!important;
+    border-radius:0 20px 20px 0!important;
+  }
+
+  .product-image img{
+    padding:8px!important;
+    object-fit:contain!important;
+  }
+
+  .product-card .product-info,
+  .product-card .card-body,
+  .product-card .content{
+    padding:10px!important;
+    min-width:0!important;
+  }
+
+  .product-card h3{
+    font-size:14px!important;
+    line-height:1.5!important;
+  }
+  .product-card p{
+    font-size:11px!important;
+    line-height:1.6!important;
+  }
+  .product-card .price{font-size:15px!important}
+  .product-card button,
+  .product-card .btn{
+    min-height:36px!important;
+    padding:6px 9px!important;
+    border-radius:10px!important;
+    font-size:10px!important;
+  }
+
+  /* حذف هر نوع تایمر */
+  .deal,.deal-timer,.countdown,.timer,#deal,.deal-section,
+  [id*="timer"],[class*="timer"]{
+    display:none!important;
+  }
+
+  /* پنجره‌ها */
+  .modal,.modal-box,.modal-content{
+    width:calc(100% - 20px)!important;
+    max-width:none!important;
+    max-height:88vh!important;
+    overflow:auto!important;
+    border-radius:21px!important;
+    margin:10px!important;
+  }
+
+  input,select,textarea{
+    max-width:100%!important;
+    font-size:16px!important;
+  }
+
+  /* نوار پایین مخصوص موبایل */
+  #gmMobileBar{
+    position:fixed;
+    left:9px;
+    right:9px;
+    bottom:9px;
+    height:58px;
+    z-index:7000;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    padding:4px;
+    border-radius:20px;
+    background:rgba(28,28,28,.95);
+    box-shadow:0 10px 35px rgba(0,0,0,.28);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+
+  #gmMobileBar a,#gmMobileBar button{
+    color:#fff;
+    border:0;
+    background:transparent;
+    min-width:58px;
+    height:49px;
+    border-radius:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+    font:10px Tahoma,Arial,sans-serif;
+  }
+
+  #gmMobileBar a:active,#gmMobileBar button:active{
+    background:rgba(255,214,0,.22);
+    transform:scale(.94);
+  }
+
+  #gmMobileBar .gm-icon{
+    font-size:16px;
+    line-height:1;
+  }
+
+  #topBtn{bottom:82px!important;right:12px!important}
+}
+
+@media(min-width:769px){
+  #gmMobileBar{display:none!important}
+}
+
+@media(max-width:390px){
+  .product-card{
+    grid-template-columns:96px minmax(0,1fr)!important;
+  }
+  .product-image{
+    width:96px!important;
+    height:150px!important;
+    min-height:150px!important;
+  }
+  .product-card .product-info,
+  .product-card .card-body,
+  .product-card .content{
+    padding:9px!important;
+  }
+  .product-card h3{font-size:13px!important}
+  .product-card .price{font-size:14px!important}
+  .logo{font-size:20px!important}
+}
+
 </style>
 </head>
 
@@ -1424,11 +1770,7 @@ button,.btn,a{-webkit-tap-highlight-color:transparent}
 <!-- DEAL -->
 <section class="section" id="special">
 
- <div class="deal">
-  <div>
-   <h2>پیشنهاد ویژه گلدن ماگ</h2>
-   <p>برای مدت محدود محصولات منتخب با تخفیف ارائه می‌شوند.</p>
-  </div>
+ 
 
   <div class="timer">
    <div class="time"><b id="hours">12</b><span>ساعت</span></div>
@@ -2633,22 +2975,7 @@ updateCart();
 ========================================================= */
 
 (function(){
-  // Loader
-  var loader=document.createElement("div");
-  loader.id="gmLoader";
-  loader.innerHTML=
-    '<div class="gm-loader-box">'+
-      '<div class="gm-loader-logo">گلدن ماگ</div>'+
-      '<div style="margin-top:7px;font-family:Tahoma,Arial,sans-serif">فروشگاه اینترنتی</div>'+
-      '<div class="gm-loader-line"></div>'+
-    '</div>';
-  document.body.insertBefore(loader,document.body.firstChild);
-
-  window.addEventListener("load",function(){
-    setTimeout(function(){
-      loader.classList.add("hide");
-    },650);
-  });
+  
 
   // Reveal animation
   function setupReveal(){
@@ -2753,5 +3080,41 @@ if(window.innerWidth<=768){
 })();
 </script>
 
+
+<script>
+/* Golden Mug v11 — Mobile navigation */
+(function(){
+  if(window.innerWidth>768)return;
+
+  var bar=document.createElement('div');
+  bar.id='gmMobileBar';
+  bar.innerHTML=
+    '<a href="#home"><span class="gm-icon">⌂</span><span>خانه</span></a>'+
+    '<a href="#products"><span class="gm-icon">□</span><span>محصولات</span></a>'+
+    '<a href="#categories"><span class="gm-icon">◇</span><span>دسته‌ها</span></a>'+
+    '<button type="button" id="gmMobileCart"><span class="gm-icon">◉</span><span>سبد خرید</span></button>'+
+    '<button type="button" id="gmMobileTop"><span class="gm-icon">↑</span><span>بالا</span></button>';
+
+  document.body.appendChild(bar);
+
+  var top=document.getElementById('gmMobileTop');
+  if(top){
+    top.onclick=function(){
+      window.scrollTo({top:0,behavior:'smooth'});
+    };
+  }
+
+  var cart=document.getElementById('gmMobileCart');
+  if(cart){
+    cart.onclick=function(){
+      var el=document.querySelector('#cartBtn,#cartButton,.cart-btn,[data-cart]');
+      if(el)el.click();
+    };
+  }
+})();
+</script>
+
 </body>
 </html>
+
+
