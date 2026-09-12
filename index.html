@@ -490,11 +490,6 @@ body.dark .category{background:#20262e}
 }
 .deal h2{font-size:21px;margin-bottom:8px}
 .deal p{font-size:12px;opacity:.9}
-.timer{
- display:flex;
- gap:7px;
- direction:ltr;
-}
 .time{
  background:#fff;
  color:#222;
@@ -1546,6 +1541,13 @@ body{overflow-x:hidden}
   .logo{font-size:20px!important}
 }
 
+
+/* v12 — TIMER COMPLETELY REMOVED; DISCOUNTS AND PRICES PRESERVED */
+.countdown,.countdown-box,.deal-timer,.deal_timer,.timer,.timer-box,
+#countdown,#timer,[data-countdown],[data-timer]{
+  display:none!important;
+}
+
 </style>
 </head>
 
@@ -1707,8 +1709,7 @@ body{overflow-x:hidden}
 
  
 
-  <div class="timer">
-   <div class="time"><b id="hours">12</b><span>ساعت</span></div>
+  </div>
    <div class="time"><b id="minutes">00</b><span>دقیقه</span></div>
    <div class="time"><b id="seconds">00</b><span>ثانیه</span></div>
   </div>
@@ -2836,9 +2837,6 @@ function countdown(){
 
 }
 
-setInterval(countdown,1000);
-countdown();
-
 
 /* =========================
    TOAST
@@ -3051,5 +3049,3 @@ if(window.innerWidth<=768){
 
 </body>
 </html>
-
-
