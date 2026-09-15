@@ -1549,56 +1549,100 @@ body{overflow-x:hidden}
 }
 
 </style>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{overflow-x:hidden;background:#f5f5f5}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 10% 10%,rgba(255,214,0,.1),transparent 30%),radial-gradient(circle at 90% 70%,rgba(229,57,53,.07),transparent 28%);animation:bgFloat 12s ease-in-out infinite alternate}@keyframes bgFloat{to{transform:scale(1.06) translateY(-12px)}}header,.header{backdrop-filter:blur(12px);transition:.35s;box-shadow:0 2px 18px rgba(0,0,0,.08)}button,a,.card,.category,.filter-btn,.product-image{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,opacity .25s ease}button:hover,a:hover{transform:translateY(-2px)}.hero{position:relative;overflow:hidden;border-radius:22px;isolation:isolate}.hero:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg,transparent 0 25%,rgba(255,214,0,.18),transparent 45% 70%,rgba(229,57,53,.12),transparent 85%);animation:heroSpin 16s linear infinite;z-index:-1}@keyframes heroSpin{to{transform:rotate(360deg)}}.hero img{animation:heroImg 5s ease-in-out infinite;filter:drop-shadow(0 20px 25px rgba(0,0,0,.16))}@keyframes heroImg{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}.hero h1,.hero h2{animation:heroText .8s cubic-bezier(.2,.8,.2,1) both}@keyframes heroText{from{opacity:0;transform:translateX(35px)}to{opacity:1;transform:none}}.card{position:relative;overflow:hidden;border:1px solid #eee;border-radius:18px;background:#fff;box-shadow:0 5px 18px rgba(0,0,0,.055);animation:cardIn .7s both}.card:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%);transform:translateX(-130%);pointer-events:none}.card:hover{transform:translateY(-9px);box-shadow:0 18px 38px rgba(0,0,0,.13);border-color:#ffd600}.card:hover:after{animation:shine .8s ease}@keyframes shine{to{transform:translateX(130%)}}@keyframes cardIn{from{opacity:0;transform:translateY(25px) scale(.97)}to{opacity:1;transform:none}}.product-image{overflow:hidden;background:#fff}.product-image img{transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .5s;will-change:transform}.card:hover .product-image img{transform:scale(1.07);filter:brightness(1.04)}.buy{position:relative;overflow:hidden}.buy:before{content:"";position:absolute;top:-80%;left:-20%;width:30px;height:260%;background:rgba(255,255,255,.45);transform:rotate(20deg);transition:.6s}.buy:hover:before{left:110%}.discount{animation:discountPulse 2.2s ease-in-out infinite}@keyframes discountPulse{50%{transform:scale(1.08)}}.gm-reveal{opacity:0;transform:translateY(35px);transition:opacity .7s,transform .7s}.gm-reveal.show{opacity:1;transform:none}.gm-orb{position:fixed;width:9px;height:9px;border-radius:50%;background:#ffd600;opacity:.45;pointer-events:none;animation:orb 7s linear infinite;z-index:0}.gm-orb.o2{background:#e53935;animation-delay:-3s}.gm-orb.o3{animation-delay:-5s}@keyframes orb{0%{transform:translate(5vw,100vh) scale(.5)}50%{transform:translate(70vw,30vh) scale(1.5)}100%{transform:translate(105vw,-10vh) scale(.3)}}@media(max-width:768px){body{padding-bottom:70px}.hero{display:block!important;height:auto!important;min-height:0!important;border-radius:14px}.hero>*{display:none!important}.hero>:first-child{display:block!important;width:100%!important;max-width:100%!important}.hero img,.hero picture{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important}.hero:before{animation:none}.hero img{animation:none;filter:none}.card{border-radius:14px}.card:hover{transform:translateY(-3px)}.product-image img{max-width:100%;height:auto;object-fit:contain}}@media(max-width:420px){.hero{margin-inline:4px}.card{margin-inline:2px}.buy{min-height:46px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}</style><script>(function(){document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.card,section,.category,.feature,.toolbar').forEach(function(e){e.classList.add('gm-reveal')});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.08});document.querySelectorAll('.gm-reveal').forEach(function(e){io.observe(e)});for(var i=0;i<3;i++){var o=document.createElement('i');o.className='gm-orb o'+(i+1);document.body.appendChild(o)}})})();</script>
+/* Golden Mug V16 — no countdown visible */
+#timer,#dealTimer,.timer,.countdown,.deal-timer,.countdown-box,
+[id*="timer"],[class*="timer"],[class*="countdown"]{display:none!important}
 
-<style id="golden-mug-v14-mobile">
-html,body{width:100%;max-width:100%;overflow-x:hidden}
-img{max-width:100%}
-button,input,select{max-width:100%}
+<style>
+/* ===== Golden Mug V16: cinematic animated background ===== */
+html,body{background:#f5f5f5!important}
+body{position:relative;isolation:isolate;overflow-x:hidden}
+body::before{
+  content:"";position:fixed;inset:-25%;z-index:-3;pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,214,0,.22),transparent 24%),
+    radial-gradient(circle at 85% 15%,rgba(229,57,53,.13),transparent 23%),
+    radial-gradient(circle at 75% 80%,rgba(255,214,0,.16),transparent 25%),
+    radial-gradient(circle at 20% 85%,rgba(229,57,53,.09),transparent 22%);
+  animation:gmAurora 14s ease-in-out infinite alternate;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.38;
+  background-image:
+    linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+  background-size:46px 46px;
+  mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);
+  animation:gmGrid 18s linear infinite;
+}
+@keyframes gmAurora{0%{transform:translate3d(-2%,-1%,0) scale(1);filter:blur(0)}50%{transform:translate3d(2%,2%,0) scale(1.05);filter:blur(4px)}100%{transform:translate3d(-1%,3%,0) scale(1.09);filter:blur(1px)}}
+@keyframes gmGrid{from{transform:translateY(0)}to{transform:translateY(46px)}}
 
-.hero{width:100%;overflow:hidden}
-.hero .slide{min-width:0}
-.hero .slide-image{min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero .slide-image img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center}
+/* floating light particles */
+.gm-particle{position:fixed;z-index:-1;border-radius:50%;pointer-events:none;opacity:.5;
+ background:linear-gradient(135deg,#ffd600,#e53935);box-shadow:0 0 18px rgba(255,214,0,.55);
+ animation:gmFloat linear infinite}
+@keyframes gmFloat{
+  0%{transform:translate3d(0,110vh,0) scale(.4);opacity:0}
+  10%{opacity:.5}90%{opacity:.28}
+  100%{transform:translate3d(var(--dx),-15vh,0) scale(1.2);opacity:0}
+}
 
+/* premium glass sections */
+.hero,.card,.feature,.category-card,.toolbar,.section-head{
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,filter .45s ease;
+}
+.card{position:relative;overflow:hidden}
+.card::before{
+ content:"";position:absolute;inset:-120% -40%;pointer-events:none;
+ background:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.65) 50%,transparent 58%);
+ transform:translateX(-65%) rotate(8deg);transition:transform .8s ease;z-index:4
+}
+.card:hover::before{transform:translateX(65%) rotate(8deg)}
+.card:hover{transform:translateY(-10px) scale(1.012);box-shadow:0 22px 55px rgba(32,32,32,.16)}
+.product-image img{transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .7s ease}
+.card:hover .product-image img{transform:scale(1.07) rotate(-1deg);filter:drop-shadow(0 16px 18px rgba(0,0,0,.13))}
+
+/* hero glow */
+.hero{position:relative;overflow:hidden}
+.hero::after{
+ content:"";position:absolute;inset:-35%;pointer-events:none;
+ background:conic-gradient(from 0deg,transparent,rgba(255,214,0,.14),transparent,rgba(229,57,53,.10),transparent);
+ animation:gmHeroSpin 12s linear infinite;z-index:0
+}
+@keyframes gmHeroSpin{to{transform:rotate(360deg)}}
+.hero>*{position:relative;z-index:1}
+
+/* buttons */
+button,.buy,.btn,.filter-btn{transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+button:hover,.buy:hover,.btn:hover,.filter-btn:hover{transform:translateY(-3px)}
+button:active,.buy:active,.btn:active{transform:scale(.96)}
+
+/* scroll reveal */
+.gm-reveal{opacity:0;transform:translateY(28px) scale(.98);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+.gm-reveal.gm-show{opacity:1;transform:none}
+
+/* mobile: only one hero, clean full-width */
 @media(max-width:768px){
-  .wrap{width:100%!important;max-width:100%!important;padding-left:10px!important;padding-right:10px!important;margin:0!important}
-  header .head{width:100%!important;max-width:100%!important;padding-left:10px!important;padding-right:10px!important}
-  .navin{width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;-webkit-overflow-scrolling:touch}
-
-  .hero{height:auto!important;min-height:0!important;border-radius:16px!important}
-  .hero .slide{position:relative!important;height:auto!important;min-height:0!important;display:flex!important;flex-direction:column!important}
-  .hero .slide-text{width:100%!important;order:1!important;padding:22px 18px 14px!important}
-  .hero .slide-text h1{font-size:clamp(23px,7vw,34px)!important;line-height:1.55!important;margin:7px 0!important}
-  .hero .slide-text p{font-size:14px!important;line-height:2!important}
-  .hero .slide-image{order:2!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;padding:0 8px 10px!important}
-  .hero .slide-image img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important}
-
-  .products{grid-template-columns:1fr!important;gap:10px!important;background:transparent!important;border:0!important;overflow:visible!important}
-  .card{width:100%!important;min-width:0!important;border:1px solid var(--line)!important;border-radius:16px!important;padding:12px!important}
-  .product-image{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:1/1!important;margin-bottom:10px!important;border-radius:13px!important;overflow:hidden!important}
-  .product-image img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
-  .card h3{font-size:16px!important;min-height:0!important}
-  .buy{min-height:48px!important;font-size:14px!important}
-
-  .toolbar{overflow-x:auto!important;flex-wrap:nowrap!important;padding-bottom:5px!important;-webkit-overflow-scrolling:touch}
-  .filter-btn,.sort{flex:0 0 auto!important;min-height:42px!important;font-size:12px!important}
-  .cart-drawer{width:min(100vw,420px)!important;max-width:100vw!important}
-  .modal,.modal-content{max-width:calc(100vw - 20px)!important}
-  #toast{left:10px!important;right:10px!important;width:auto!important;max-width:none!important;bottom:78px!important}
+  .hero{display:block!important;height:auto!important;min-height:0!important}
+  .hero .hero-slide:nth-child(n+2),
+  .hero .slide:nth-child(n+2),
+  .hero .hero-item:nth-child(n+2){display:none!important}
+  .hero img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important}
+  .card:hover{transform:translateY(-4px) scale(1.005)}
+  body::after{background-size:32px 32px}
 }
-@media(max-width:480px){
-  .hero .slide-text{padding:18px 15px 10px!important}
-  .hero .slide-text h1{font-size:24px!important}
-  .hero .slide-text p{font-size:13px!important}
-  .hero-btn{width:100%!important;min-height:46px!important}
-  .card{padding:10px!important}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
 }
-@media(max-width:360px){
-  .wrap{padding-left:7px!important;padding-right:7px!important}
-  .hero .slide-text h1{font-size:22px!important}
-  .card h3{font-size:14px!important}
-  .price{font-size:16px!important}
-}
+</style>
+
+
+<style>
+/* Final timer kill switch — no 00:00 / 0000 anywhere */
+#timer,#dealTimer,#countdown,#special,.timer,.countdown,.deal-timer,.countdown-box,.deal-section,[id*="timer"],[class*="timer"],[id*="countdown"],[class*="countdown"]{display:none!important} 
 </style>
 
 </head>
@@ -1753,20 +1797,6 @@ button,input,select{max-width:100%}
   </a>
 
  </div>
-</section>
-
-
-<!-- DEAL -->
-<section class="section" id="special">
-
- 
-
-  </div>
-   <div class="time"><b id="minutes">00</b><span>دقیقه</span></div>
-   <div class="time"><b id="seconds">00</b><span>ثانیه</span></div>
-  </div>
- </div>
-
 </section>
 
 
@@ -2861,36 +2891,6 @@ setInterval(function(){
 
 
 /* =========================
-   COUNTDOWN
-========================= */
-
-let secondsLeft=12*60*60;
-
-function countdown(){
-
- let h=Math.floor(secondsLeft/3600);
- let m=Math.floor((secondsLeft%3600)/60);
- let s=secondsLeft%60;
-
- document.getElementById("hours").innerText=
-  String(h).padStart(2,"0");
-
- document.getElementById("minutes").innerText=
-  String(m).padStart(2,"0");
-
- document.getElementById("seconds").innerText=
-  String(s).padStart(2,"0");
-
- secondsLeft--;
-
- if(secondsLeft<0){
-  secondsLeft=12*60*60;
- }
-
-}
-
-
-/* =========================
    TOAST
 ========================= */
 
@@ -3096,6 +3096,136 @@ if(window.innerWidth<=768){
       if(el)el.click();
     };
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  function hideTimers(){
+    var els=document.querySelectorAll(
+      '#timer,#dealTimer,.timer,.countdown,.deal-timer,.countdown-box,[id*="timer"],[class*="timer"],[class*="countdown"]'
+    );
+    els.forEach(function(el){el.style.display='none';});
+  }
+  hideTimers();
+  setTimeout(hideTimers,300);
+  setTimeout(hideTimers,1200);
+
+  // Beautiful floating particles, lightweight enough for phones.
+  var count = window.innerWidth <= 768 ? 8 : 16;
+  for(var i=0;i<count;i++){
+    var p=document.createElement('span');
+    p.className='gm-particle';
+    var s=(3+Math.random()*8);
+    p.style.width=s+'px'; p.style.height=s+'px';
+    p.style.left=(Math.random()*100)+'vw';
+    p.style.setProperty('--dx',((Math.random()-.5)*180)+'px');
+    p.style.animationDuration=(9+Math.random()*12)+'s';
+    p.style.animationDelay=(-Math.random()*18)+'s';
+    document.body.appendChild(p);
+  }
+
+  // Reveal sections/cards as they enter the viewport.
+  var targets=document.querySelectorAll(
+    '.card,.feature,.category-card,.toolbar,.section-head,.hero'
+  );
+  targets.forEach(function(el){el.classList.add('gm-reveal');});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('gm-show');io.unobserve(e.target);}
+      });
+    },{threshold:.08});
+    targets.forEach(function(el){io.observe(el);});
+  }else{
+    targets.forEach(function(el){el.classList.add('gm-show');});
+  }
+
+  // Keep timer hidden if an old script recreates it.
+  var mo=new MutationObserver(hideTimers);
+  mo.observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
+
+<style>
+/* ===== Golden Mug V17 — COSMIC STARFIELD ===== */
+html,body{background:radial-gradient(circle at 50% 0%,#182238 0%,#0a1020 48%,#050811 100%)!important}
+body{position:relative;isolation:isolate;overflow-x:hidden}
+#gmStarfield{position:fixed;inset:0;width:100%;height:100%;z-index:-10;pointer-events:none;display:block}
+body:before{content:"";position:fixed;inset:-20%;z-index:-9;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(255,214,0,.12),transparent 28%),radial-gradient(circle at 85% 30%,rgba(100,160,255,.12),transparent 30%),radial-gradient(circle at 50% 90%,rgba(229,57,53,.08),transparent 25%);animation:gmSpaceGlow 16s ease-in-out infinite alternate}
+@keyframes gmSpaceGlow{0%{transform:translate3d(-2%,-1%,0) scale(1)}50%{transform:translate3d(2%,2%,0) scale(1.05)}100%{transform:translate3d(-1%,3%,0) scale(1.09)}}
+/* keep store surfaces readable above the stars */
+.top,header,.nav,.wrap,.features,.feature,.category,.product-card,.deal,.contact-card,footer,#gmMobileBar{position:relative;z-index:1}
+@media(max-width:768px){#gmStarfield{opacity:.9}}
+@media(prefers-reduced-motion:reduce){#gmStarfield{display:none!important}}
+</style>
+<script>
+/* Golden Mug V17 — lightweight animated space stars */
+(function(){
+  function initStars(){
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var c=document.createElement('canvas');
+    c.id='gmStarfield';
+    document.body.insertBefore(c,document.body.firstChild);
+    var ctx=c.getContext('2d');
+    var stars=[];
+    var w=0,h=0,dpr=1;
+    function resize(){
+      dpr=Math.min(window.devicePixelRatio||1,2);
+      w=window.innerWidth; h=window.innerHeight;
+      c.width=Math.floor(w*dpr); c.height=Math.floor(h*dpr);
+      c.style.width=w+'px'; c.style.height=h+'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      var count=w<600?85:(w<1000?130:190);
+      stars=[];
+      for(var i=0;i<count;i++) addStar(true);
+    }
+    function addStar(initial){
+      var angle=Math.random()*Math.PI*2;
+      var radius=initial?Math.random()*Math.max(w,h)*.85:Math.random()*80+20;
+      stars.push({
+        a:angle,r:radius,z:Math.random(),speed:.35+Math.random()*1.35,
+        size:.35+Math.random()*1.8,tw:Math.random()*Math.PI*2
+      });
+    }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      var cx=w/2,cy=h/2;
+      for(var i=0;i<stars.length;i++){
+        var s=stars[i];
+        s.r += s.speed*(1+s.z*1.5);
+        s.tw += .025;
+        var x=cx+Math.cos(s.a)*s.r;
+        var y=cy+Math.sin(s.a)*s.r;
+        if(x<-20||x>w+20||y<-20||y>h+20){
+          var ang=Math.random()*Math.PI*2;
+          s.a=ang; s.r=20+Math.random()*55; s.z=.25+Math.random()*.75;
+          continue;
+        }
+        var alpha=.25+.5*(.5+.5*Math.sin(s.tw))*(.45+.55*s.z);
+        var size=s.size*(.65+s.z*1.25);
+        ctx.beginPath();
+        ctx.fillStyle='rgba(255,255,255,'+alpha.toFixed(3)+')';
+        ctx.arc(x,y,size,0,Math.PI*2);
+        ctx.fill();
+        if(s.z>.78){
+          ctx.beginPath();
+          ctx.strokeStyle='rgba(255,214,0,'+(alpha*.32).toFixed(3)+')';
+          ctx.lineWidth=.7;
+          ctx.moveTo(x,y);
+          ctx.lineTo(x-Math.cos(s.a)*size*5,y-Math.sin(s.a)*size*5);
+          ctx.stroke();
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize',resize);
+    resize(); draw();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initStars);
+  else initStars();
 })();
 </script>
 
