@@ -1,18 +1,27 @@
 services:
   - type: web
-    name: golden-mug-ai-support
-    runtime: python
+    name: golden-mug-account-api
+    runtime: node
     plan: free
-    rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
     healthCheckPath: /health
     envVars:
-      - key: GAPGPT_API_KEY
-        sync: false
-      - key: GAPGPT_MODEL
-        sync: false
-      - key: ALLOWED_ORIGIN
+      - key: DATABASE_URL
+        fromDatabase:
+          name: golden-mug-db
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: FRONTEND_ORIGIN
         value: https://amirata32901.github.io
-      - key: GAPGPT_BASE_URL
-        value: https://api.gapgpt.app/v1
+      - key: DATABASE_SSL
+        value: "false"
+
+databases:
+  - name: golden-mug-db
+    plan: free
+    region: frankfurt
+    databaseName: golden_mug
+    user: golden_mug_user
