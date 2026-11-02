@@ -31,7 +31,7 @@ ALLOWED_ORIGIN = os.getenv(
 ).rstrip("/")
 BASE_URL = os.getenv("GAPGPT_BASE_URL", "https://api.gapgpt.app/v1").rstrip("/")
 API_KEY = os.getenv("GAPGPT_API_KEY", "").strip()
-MODEL = os.getenv("GAPGPT_MODEL", "gpt-4o-mini").strip()
+MODEL = os.getenv("GAPGPT_MODEL", "").strip()
 
 # Simple per-process rate limit: 12 messages per IP per minute.
 recent_requests = defaultdict(deque)
@@ -84,6 +84,8 @@ def chat():
 
     if not API_KEY:
         return jsonify({"error": "کلید API روی سرور تنظیم نشده است."}), 503
+    if not MODEL:
+        return jsonify({"error": "نام مدل هوش مصنوعی روی سرور تنظیم نشده است."}), 503
 
     data = request.get_json(silent=True) or {}
     message = str(data.get("message", "")).strip()
