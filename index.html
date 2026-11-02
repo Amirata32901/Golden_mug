@@ -784,6 +784,34 @@ footer strong{
 .clear-cart-btn{background:#291b35;color:#d8c8e6;border:1px solid #60417b}
 @media(max-width:600px){.cart-box{padding:16px}.cart-row{grid-template-columns:1fr}.cart-controls{justify-content:flex-start}.cart-link{padding:9px 12px}}
 
+
+/* THREE.JS 3D MUG HERO */
+.hero{isolation:isolate}
+.mug3d-viewer{
+ position:absolute;z-index:1;left:2%;top:50%;transform:translateY(-50%);
+ width:47%;height:500px;max-width:650px;min-width:320px;
+ cursor:grab;touch-action:pan-y;
+}
+.mug3d-viewer:active{cursor:grabbing}
+.mug3d-viewer canvas{display:block;width:100%;height:100%;outline:none}
+.mug3d-hint{
+ position:absolute;left:50%;bottom:20px;transform:translateX(-50%);
+ color:#e7d7ff;background:rgba(15,8,25,.55);border:1px solid rgba(255,210,26,.28);
+ border-radius:30px;padding:8px 14px;font-size:11px;white-space:nowrap;
+ backdrop-filter:blur(8px);pointer-events:none
+}
+@media(max-width:900px){
+ .mug3d-viewer{left:0;width:46%;height:400px;min-width:0}
+}
+@media(max-width:600px){
+ .hero{min-height:740px;align-items:flex-end}
+ .mug3d-viewer{top:0;left:5%;transform:none;width:90%;height:350px;max-width:none}
+ .mug3d-hint{bottom:8px}
+ .hero-content{margin:0 auto 35px;width:90%;text-align:center}
+ .hero-buttons{justify-content:center}
+ .hero p{margin-left:auto;margin-right:auto}
+}
+
 </style>
 </head>
 
@@ -812,6 +840,7 @@ footer strong{
 <!-- HERO -->
 
 <section class="hero" id="home">
+    <div id="mug3d-viewer" class="mug3d-viewer" aria-label="مدل سه‌بعدی تعاملی لیوان گلدن ماگ"><div class="mug3d-hint">برای چرخاندن لیوان، بکشید</div></div>
 
     <div class="hero-content">
 
@@ -1367,6 +1396,7 @@ footer strong{
     </div>
   </div>
 </div>
+<script type="module" src="mug3d.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>
