@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: golden-mug-ai-support
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    envVars:
+      - key: GAPGPT_API_KEY
+        sync: false
+      - key: GAPGPT_MODEL
+        sync: false
+      - key: ALLOWED_ORIGIN
+        value: https://amirata32901.github.io
+      - key: GAPGPT_BASE_URL
+        value: https://api.gapgpt.app/v1
