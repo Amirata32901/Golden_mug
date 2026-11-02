@@ -894,6 +894,20 @@ footer strong{
  .hero-content p{font-size:14px}
 }
 
+/* 20 MUG SHOWCASE */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:0;padding:32px 4% 55px;gap:0;text-align:center;background:radial-gradient(ellipse at 50% 42%,rgba(124,58,237,.23),transparent 56%),linear-gradient(180deg,#0b0711,#08060b)}
+.hero-showcase-heading{position:relative;z-index:3;width:100%;margin:0 auto}
+.hero-showcase-heading h1{font-size:clamp(30px,4.5vw,54px);line-height:1.35;margin:0 auto 8px}
+.hero-showcase-heading p{font-size:15px;color:#c8bfce;margin:0 auto}
+.mug3d-viewer{position:relative;z-index:3;width:min(1050px,100%);height:390px;max-width:1050px;margin:0 auto;cursor:grab;touch-action:pan-y}
+.mug3d-viewer:active{cursor:grabbing}
+.mug3d-viewer canvas{display:block;width:100%;height:100%;outline:none}
+.mug3d-counter{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:4;color:#ffd21a;background:rgba(15,8,25,.78);border:1px solid rgba(255,210,26,.35);border-radius:30px;padding:7px 15px;font-size:12px;pointer-events:none}
+.mug3d-hint{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);z-index:4;color:#e7d7ff;background:rgba(15,8,25,.78);border:1px solid rgba(255,210,26,.3);border-radius:30px;padding:8px 15px;font-size:11px;white-space:nowrap;pointer-events:none}
+.hero-content{position:relative;z-index:3;width:min(850px,95%);max-width:850px;margin:0 auto;text-align:center;padding:8px 0 0}
+.hero-content p{color:#d6cedd;font-size:15px;line-height:2;margin:0 auto 18px;max-width:760px}
+.hero-buttons{justify-content:center}
+@media(max-width:700px){.hero{padding:25px 3% 38px}.hero-showcase-heading h1{font-size:clamp(28px,8vw,39px)}.hero-showcase-heading p{font-size:13px}.mug3d-viewer{height:340px;width:100%}.mug3d-counter{top:8px}.mug3d-hint{font-size:10px;bottom:4px;padding:7px 11px}.hero-content p{font-size:14px}}
 </style>
 </head>
 
@@ -922,23 +936,9 @@ footer strong{
 <!-- HERO -->
 
 <section class="hero" id="home">
-    <div class="hero-showcase-heading">
-        <div class="badge">مجموعه گلدن ماگ</div>
-        <h1>ماگ‌های زیبا با <span>طرح‌های مختلف</span></h1>
-        <p>مدل مورد علاقه‌ات را از بین طرح‌های متنوع انتخاب کن.</p>
-    </div>
-
-    <div id="mug3d-viewer" class="mug3d-viewer" aria-label="چهار ماگ سه‌بعدی با طرح‌های متفاوت">
-        <div class="mug3d-hint">هر ماگ را جداگانه با ماوس یا لمس بچرخان</div>
-    </div>
-
-    <div class="hero-content">
-        <p>از ماگ‌های ساده و مینیمال تا طرح‌های فانتزی و رنگارنگ؛ مدل‌های متنوع را ببین و انتخاب کن.</p>
-        <div class="hero-buttons">
-            <a href="#products" class="hero-btn primary">دیدن همه ماگ‌ها</a>
-            <a href="#features" class="hero-btn secondary">درباره گلدن ماگ</a>
-        </div>
-    </div>
+<div class="hero-showcase-heading"><div class="badge">مجموعه گلدن ماگ</div><h1>ماگ‌های زیبا با <span>طرح‌های مختلف</span></h1><p>۲۰ مدل سه‌بعدی با رنگ‌ها و طرح‌های متنوع؛ هر چند ثانیه یک ماگ جدید نمایش داده می‌شود.</p></div>
+<div id="mug3d-viewer" class="mug3d-viewer" aria-label="نمایش نوبتی بیست مدل ماگ سه‌بعدی"><div class="mug3d-counter" id="mug3d-counter">مدل ۰۱ از ۲۰</div><div class="mug3d-hint">نمایش خودکار مدل‌ها؛ برای چرخاندن ماگ بکشید</div></div>
+<div class="hero-content"><p>از طرح‌های مینیمال و کلاسیک تا مدل‌های رنگارنگ و فانتزی؛ مدل‌ها را تماشا کن و برای دیدن محصولات واقعی به بخش فروشگاه برو.</p><div class="hero-buttons"><a href="#products" class="hero-btn primary">دیدن همه ماگ‌ها</a><a href="#features" class="hero-btn secondary">درباره گلدن ماگ</a></div></div>
 </section>
 
 
