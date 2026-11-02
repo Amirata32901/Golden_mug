@@ -50,10 +50,10 @@ h1{font-size:clamp(27px,5vw,42px);margin:20px 0 10px}
 <a class="back" href="index.html">بازگشت به فروشگاه</a>
 </header>
 <h1>مرکز پشتیبانی <span style="color:var(--yellow)">گلدن ماگ</span></h1>
-<p class="intro">سؤالت رو بنویس یا یکی از موضوع‌های آماده رو انتخاب کن. راهنمای خودکار تلاش می‌کنه همین‌جا کمکت کنه.</p>
+<p class="intro">سؤالت رو بنویس یا یکی از موضوع‌های آماده رو انتخاب کن. دستیار هوشمند گلدن ماگ تلاش می‌کنه همین‌جا به پرسش‌هات پاسخ بده.</p>
 <div class="layout">
 <section class="chat" aria-label="گفت‌وگوی راهنمای خودکار">
-<div class="chat-head"><strong>راهنمای آنلاین گلدن ماگ</strong><span class="status">پاسخ‌گویی خودکار</span></div>
+<div class="chat-head"><strong>دستیار هوشمند گلدن ماگ</strong><span class="status">پاسخ‌گویی هوشمند</span></div>
 <div class="messages" id="messages" aria-live="polite">
 <div class="msg bot">سلام! به پشتیبانی گلدن ماگ خوش اومدی. درباره سفارش، قیمت محصولات یا پیگیری خرید سؤالی داری؟</div>
 </div>
@@ -72,7 +72,7 @@ h1{font-size:clamp(27px,5vw,42px);margin:20px 0 10px}
 <h2>نیاز به پشتیبان انسانی داری؟</h2>
 <p>اگر راهنمای خودکار جواب سؤالت رو نداد، می‌تونی از طریق روبیکا با پشتیبان فروشگاه ارتباط بگیری.</p>
 <a class="human" href="https://rubika.ir/sajad_yousefi1317" target="_blank" rel="noopener">ارتباط با پشتیبان در روبیکا</a>
-<p class="note">توجه: این بخش در حال حاضر راهنمای خودکار است و پیام‌ها به‌صورت آنلاین برای مدیر فروشگاه ارسال یا ذخیره نمی‌شوند. برای پاسخ انسانی از دکمه روبیکا استفاده کن.</p>
+<p class="note">پاسخ‌ها توسط هوش مصنوعی تولید می‌شوند و ممکن است همیشه دقیق نباشند. برای تأیید موجودی، قیمت و وضعیت سفارش، با پشتیبان انسانی در روبیکا هماهنگ کن.</p>
 </aside>
 </div>
 </div>
@@ -80,6 +80,8 @@ h1{font-size:clamp(27px,5vw,42px);margin:20px 0 10px}
 (function(){
 var box=document.getElementById('messages');
 var input=document.getElementById('question');
+var sendButton=document.querySelector('#chatForm button');
+var busy=false;
 function add(text,kind){
  var node=document.createElement('div');
  node.className='msg '+kind;
@@ -87,34 +89,36 @@ function add(text,kind){
  box.appendChild(node);
  box.scrollTop=box.scrollHeight;
 }
-function answer(q){
- var t=q.toLowerCase();
- if(t.includes('سفارش')||t.includes('خرید')){
-  return 'برای ثبت سفارش، به صفحه اصلی فروشگاه برگرد و روی دکمه خرید محصول موردنظرت بزن. متن درخواست خرید آماده می‌شود و می‌توانی آن را برای فروشگاه ارسال کنی.';
- }
- if(t.includes('پیگیری')||t.includes('کد رهگیری')||t.includes('رهگیری')){
-  return 'برای پیگیری سفارش، کد یا متن ثبت سفارش خودت را آماده کن و از طریق روبیکا برای پشتیبان بفرست. این نسخه از سایت هنوز سامانه رهگیری خودکار ندارد.';
- }
- if(t.includes('قیمت')||t.includes('هزینه')){
-  return 'قیمت هر محصول در کارت همان محصول در صفحه اصلی نمایش داده شده است. برای اطمینان از موجودی و قیمت نهایی، قبل از خرید با پشتیبان هماهنگ کن.';
- }
- if(t.includes('ارسال')||t.includes('پست')||t.includes('تحویل')){
-  return 'جزئیات روش و هزینه ارسال در سایت ثبت نشده است. برای اطلاع دقیق از شرایط ارسال، از طریق روبیکا با پشتیبان هماهنگ کن.';
- }
- if(t.includes('مرجوع')||t.includes('تعویض')||t.includes('بازگشت')){
-  return 'شرایط تعویض یا مرجوعی هنوز در سایت اعلام نشده است. لطفاً پیش از خرید این موضوع را از پشتیبان فروشگاه بپرس.';
- }
- if(t.includes('پشتیبان')||t.includes('انسان')||t.includes('روبیکا')||t.includes('تماس')){
-  return 'برای صحبت با پشتیبان انسانی، از دکمه «ارتباط با پشتیبان در روبیکا» در کنار گفت‌وگو استفاده کن.';
- }
- return 'برای این سؤال هنوز پاسخ دقیقی در راهنمای سایت ثبت نشده. از دکمه «ارتباط با پشتیبان در روبیکا» استفاده کن تا پشتیبان راهنمایی‌ات کند.';
-}
-function send(q){
+async function send(q){
  q=(q||'').trim();
- if(!q)return;
+ if(!q || busy)return;
  add(q,'user');
  input.value='';
- window.setTimeout(function(){add(answer(q),'bot');},250);
+ busy=true;
+ sendButton.disabled=true;
+ sendButton.textContent='...';
+ var waiting=document.createElement('div');
+ waiting.className='msg bot';
+ waiting.textContent='در حال دریافت پاسخ...';
+ box.appendChild(waiting);
+ box.scrollTop=box.scrollHeight;
+ try{
+  var response=await fetch('https://YOUR-FLASK-SERVER.example.com/api/chat',{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({message:q})
+  });
+  var data=await response.json();
+  if(!response.ok)throw new Error(data.error||'خطا در ارتباط با پشتیبانی');
+  waiting.textContent=data.reply||'پاسخی دریافت نشد.';
+ }catch(err){
+  waiting.textContent='فعلاً ارتباط با دستیار برقرار نشد. لطفاً کمی بعد دوباره تلاش کن یا از دکمه ارتباط با پشتیبان انسانی استفاده کن.';
+  console.error(err);
+ }finally{
+  busy=false;
+  sendButton.disabled=false;
+  sendButton.textContent='ارسال';
+ }
 }
 document.getElementById('chatForm').addEventListener('submit',function(e){
  e.preventDefault();send(input.value);
