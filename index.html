@@ -1405,8 +1405,9 @@ refreshCartCount();
 async function buyProduct(name,price){
     try{
       const me=await api("/api/me");
-      const numericPrice=Number(String(price).replace(/[^0-9]/g,""));
-      const productId=name.toLowerCase().replace(/\\s+/g,"-");
+      const latinPrice=String(price).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
+      const numericPrice=Number(latinPrice.replace(/[^0-9]/g,""));
+      const productId=name.toLowerCase().replace(/\s+/g,"-");
       await api("/api/cart",{method:"POST",body:JSON.stringify({productId,name,price:numericPrice,quantity:1})});
       await refreshCartCount();
       currentOrder = "سلام، درخواست خرید "+name+" با قیمت "+price+" تومان را دارم.";
