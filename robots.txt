@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://amirata32901.github.io/Golden_mug/sitemap.xml
