@@ -758,6 +758,32 @@ footer strong{
 .cart-total{color:#ffd21a;font-weight:bold;margin:18px 0}
 .cart-close{background:#ffd21a;color:#09060d;border:0;border-radius:10px;padding:11px 16px;font:bold 13px Tahoma;cursor:pointer}
 @media(max-width:700px){.account-actions{gap:6px}.account-link,.cart-link{padding:9px 10px;font-size:11px}}
+
+/* سبد خرید تکمیل‌شده */
+.account-actions{display:flex;align-items:center}
+.cart-link{color:#fff;text-decoration:none;border:1px solid rgba(255,210,26,.55);border-radius:13px;padding:11px 17px;background:rgba(124,58,237,.2);font: bold 13px Tahoma;cursor:pointer;transition:.25s}
+.cart-link:hover{background:#7c3aed;transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,.35)}
+#cartCount{display:inline-flex;min-width:22px;height:22px;align-items:center;justify-content:center;margin-right:5px;border-radius:50%;background:#ffd21a;color:#100b00}
+.cart-panel{position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,.78);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:16px}
+.cart-panel.open{display:flex}
+.cart-box{width:620px;max-width:100%;max-height:88vh;overflow:auto;background:linear-gradient(145deg,#180d25,#070609);border:1px solid rgba(255,210,26,.7);border-radius:24px;padding:22px;box-shadow:0 25px 90px #000,0 0 35px rgba(124,58,237,.2)}
+.cart-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.cart-heading h2{color:#ffd21a;margin:0}
+.cart-x{background:transparent;border:0;color:#aaa;font-size:30px;cursor:pointer}
+.cart-empty{text-align:center;color:#bbb;padding:35px 10px;line-height:2}
+.cart-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid #382647;color:#eee}
+.cart-name{font-weight:bold;margin-bottom:7px}
+.cart-price{font-size:13px;color:#c6b7d2}
+.cart-controls{display:flex;align-items:center;gap:8px}
+.cart-controls button{width:30px;height:30px;border:0;border-radius:9px;background:#6d28d9;color:white;cursor:pointer;font:bold 16px Tahoma}
+.cart-controls .remove-item{width:auto;padding:0 10px;background:#462238;font-size:12px}
+.cart-summary{border-top:1px solid #4b365a;margin-top:18px;padding-top:16px}
+.cart-total{color:#ffd21a;font-weight:bold;font-size:19px;margin-bottom:16px}
+.checkout-btn,.clear-cart-btn{width:100%;border:0;border-radius:13px;padding:14px;margin-top:8px;font:bold 14px Tahoma;cursor:pointer}
+.checkout-btn{background:linear-gradient(135deg,#ffd21a,#ffb700);color:#100b00}
+.clear-cart-btn{background:#291b35;color:#d8c8e6;border:1px solid #60417b}
+@media(max-width:600px){.cart-box{padding:16px}.cart-row{grid-template-columns:1fr}.cart-controls{justify-content:flex-start}.cart-link{padding:9px 12px}}
+
 </style>
 </head>
 
@@ -772,12 +798,11 @@ footer strong{
             ☕ گلدن <span>ماگ</span>
         </div>
 
-        <div class="account-actions"><a class="account-link" href="profile.html">ورود / ثبت‌نام</a><button class="cart-link" type="button" onclick="openCart()">سبد خرید <span id="cartCount">0</span></button></div>
+        <div class="account-actions"><button class="cart-link" type="button" onclick="openCart()">سبد خرید <span id="cartCount">0</span></button></div>
         <nav class="nav-links">
             <a href="#home">خانه</a>
             <a href="#products">محصولات</a>
             <a href="#features">مزایا</a>
-            <a href="support.html">پشتیبانی</a>
         </nav>
 
     </div>
@@ -1326,158 +1351,22 @@ footer strong{
 <!-- FOOTER -->
 
 <footer>
-    © 2026 <strong>گلدن ماگ</strong> — تمامی حقوق محفوظ است<br><a href="support.html" style="display:inline-block;margin-top:12px;color:#ffd21a;text-decoration:none">مرکز پشتیبانی مشتریان</a>
+    © 2026 <strong>گلدن ماگ</strong> — تمامی حقوق محفوظ است
 </footer>
 
 
 
 <div class="cart-panel" id="cartPanel" onclick="if(event.target===this)closeCart()">
- <div class="cart-box"><h2>سبد خرید من</h2><div id="cartItems">برای دیدن سبد خرید ابتدا وارد حساب کاربری شو.</div><div class="cart-total" id="cartTotal"></div><button class="cart-close" onclick="closeCart()">بستن</button></div>
-</div>
-<script src="api-config.js"></script>
-
-<!-- PURCHASE MODAL -->
-
-<div class="modal" id="purchaseModal">
-
-    <div class="modal-box">
-
-        <img
-            class="rubika-logo"
-            src="https://rubika.ir/favicon.ico"
-            alt="Rubika">
-
-        <h2>ثبت سفارش</h2>
-
-        <p id="orderText"></p>
-
-        <div class="modal-buttons">
-
-            <a
-                class="rubika-btn"
-                href="https://rubika.ir/sajad_yousefi1317"
-                target="_blank">
-
-                ورود به پیام خصوصی روبیکا
-
-            </a>
-
-            <button
-                class="copy-btn"
-                onclick="copyOrder()">
-
-                کپی درخواست
-
-            </button>
-
-        </div>
-
-        <button
-            class="close-btn"
-            onclick="closeModal()">
-
-            بستن
-
-        </button>
-
+  <div class="cart-box">
+    <div class="cart-heading"><h2>سبد خرید من</h2><button class="cart-x" type="button" onclick="closeCart()">×</button></div>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="cart-total" id="cartTotal">جمع کل: ۰ تومان</div>
+      <button class="checkout-btn" type="button" onclick="checkoutCart()">ادامه و ثبت سفارش در روبیکا</button>
+      <button class="clear-cart-btn" type="button" onclick="clearCart()">خالی کردن سبد</button>
     </div>
-
+  </div>
 </div>
-
-
-<script>
-
-var currentOrder = "";
-const API_BASE = window.GOLDEN_MUG_API || "";
-async function api(path, options={}){
- if(!API_BASE) throw new Error("اتصال سرور هنوز تنظیم نشده است.");
- const response=await fetch(API_BASE+path,{credentials:"include",headers:{"Content-Type":"application/json",...(options.headers||{})},...options});
- const data=await response.json().catch(()=>({}));
- if(!response.ok) throw new Error(data.error||"ارتباط با سرور برقرار نشد.");
- return data;
-}
-async function refreshCartCount(){try{const d=await api("/api/cart");document.getElementById("cartCount").textContent=d.items.reduce((n,x)=>n+x.quantity,0);}catch(e){document.getElementById("cartCount").textContent="0";}}
-async function openCart(){document.getElementById("cartPanel").classList.add("open");const area=document.getElementById("cartItems");area.textContent="در حال دریافت سبد خرید...";try{const d=await api("/api/cart");if(!d.items.length){area.textContent="سبد خریدت هنوز خالیه.";document.getElementById("cartTotal").textContent="";return;}area.innerHTML="";let total=0;d.items.forEach(item=>{total+=item.price*item.quantity;const row=document.createElement("div");row.className="cart-row";const label=document.createElement("span");label.textContent=item.name+" × "+item.quantity+" — "+item.price.toLocaleString("fa-IR")+" تومان";const remove=document.createElement("button");remove.textContent="حذف";remove.onclick=()=>removeCartItem(item.productId);row.append(label,remove);area.appendChild(row);});document.getElementById("cartTotal").textContent="جمع: "+total.toLocaleString("fa-IR")+" تومان";}catch(e){area.textContent=e.message+" — برای ورود به حساب برو.";}}
-function closeCart(){document.getElementById("cartPanel").classList.remove("open");}
-async function removeCartItem(id){try{await api("/api/cart/"+encodeURIComponent(id),{method:"DELETE"});openCart();refreshCartCount();}catch(e){alert(e.message);}}
-refreshCartCount();
-
-async function buyProduct(name,price){
-    try{
-      const me=await api("/api/me");
-      const latinPrice=String(price).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
-      const numericPrice=Number(latinPrice.replace(/[^0-9]/g,""));
-      const productId=name.toLowerCase().replace(/\s+/g,"-");
-      await api("/api/cart",{method:"POST",body:JSON.stringify({productId,name,price:numericPrice,quantity:1})});
-      await refreshCartCount();
-      currentOrder = "سلام، درخواست خرید "+name+" با قیمت "+price+" تومان را دارم.";
-      document.getElementById("orderText").innerText="محصول به سبد خرید حساب "+me.user.fullName+" اضافه شد.\n"+name+" — "+price+" تومان";
-      document.getElementById("purchaseModal").className="modal show";
-    }catch(e){
-      if(e.message.includes("وارد حساب")||e.message.includes("حساب کاربری")){if(confirm("برای افزودن محصول به سبد خرید، ابتدا وارد حساب شو. برویم به صفحه ورود؟"))location.href="profile.html";}
-      else alert(e.message);
-    }
-}
-
-/* legacy order flow disabled */
-function legacyBuyProduct(name,price){
-
-    currentOrder =
-        "سلام، درخواست خرید " +
-        name +
-        " با قیمت " +
-        price +
-        " تومان را دارم.";
-
-    document.getElementById("orderText").innerText =
-        "محصول: " + name +
-        "\nقیمت: " + price + " تومان\n\n" +
-        "درخواست سفارش شما آماده است.";
-
-    document
-        .getElementById("purchaseModal")
-        .className = "modal show";
-}
-
-function closeModal(){
-
-    document
-        .getElementById("purchaseModal")
-        .className = "modal";
-}
-
-function copyOrder(){
-
-    var area = document.createElement("textarea");
-
-    area.value = currentOrder;
-
-    document.body.appendChild(area);
-
-    area.select();
-
-    try{
-        document.execCommand("copy");
-        alert("متن درخواست کپی شد.");
-    }
-    catch(e){
-        alert("کپی خودکار انجام نشد؛ متن درخواست را دستی کپی کن.");
-    }
-
-    document.body.removeChild(area);
-}
-
-document
-    .getElementById("purchaseModal")
-    .onclick = function(e){
-
-        if(e.target === this){
-            closeModal();
-        }
-
-    };
-
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
