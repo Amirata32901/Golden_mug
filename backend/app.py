@@ -46,6 +46,11 @@ SYSTEM_PROMPT = """تو دستیار پشتیبانی فروشگاه اینتر�
 اگر پرسش خارج از موضوع فروشگاه است، کوتاه بگو حوزه پشتیبانی تو گلدن ماگ است.
 """
 
+@app.get("/health")
+def health():
+    return jsonify({"status": "ok"})
+
+
 def allowed_origin(origin):
     return origin and origin.rstrip("/") == ALLOWED_ORIGIN
 
