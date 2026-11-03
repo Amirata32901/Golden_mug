@@ -56,6 +56,69 @@
     alert(copied?"متن سفارش کپی شد. در صفحه روبیکا آن را ارسال کن.":"صفحه روبیکا باز می‌شود؛ متن سفارش را از سبد خرید کپی کن.");
     window.open(RUBIKA_URL,"_blank","noopener");
   };
-  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart();});
+
+  // Smart Persian product search
+  const searchInput=document.getElementById("productSearch");
+  const searchResults=document.getElementById("searchResults");
+  const searchClear=document.getElementById("searchClear");
+  const searchStatus=document.getElementById("searchStatus");
+  const productCards=Array.from(document.querySelectorAll("#productGrid .product"));
+  function normalizeSearch(value){
+    return String(value||"").toLowerCase().replace(/[يى]/g,"ی").replace(/ك/g,"ک")
+      .replace(/[\u064B-\u065F\u0670\u0640]/g,"")
+      .replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d))
+      .replace(/[\u200c\sـ،,؛;.!؟?()\[\]_-]+/g," ").trim();
+  }
+  const searchSynonyms={"ماگ":["لیوان","فنجان","کاپ","mug","cup"],"لیوان":["ماگ","فنجان","کاپ","mug"],"گربه":["cat","پیشی"],"خرگوش":["rabbit"],"خرس":["خرسی","bear"],"باب اسفنجی":["باب‌اسفنجی","spongebob","اسفنجی"],"فانتزی":["عروسکی","کارتونی","خاص"],"سرامیکی":["ceramic"],"هدیه":["کادو","تولد"]};
+  const searchItems=productCards.map(card=>{
+    const title=card.querySelector("h3")?.textContent||"",desc=card.querySelector(".description")?.textContent||"",img=card.querySelector("img"),price=card.querySelector(".price")?.textContent||"";
+    return {card,title,desc,price,hay:normalizeSearch([title,desc,price,img?.alt||""].join(" "))};
+  });
+  function editDistance(a,b){
+    if(Math.abs(a.length-b.length)>1)return 99;
+    let prev=Array.from({length:b.length+1},(_,i)=>i);
+    for(let i=1;i<=a.length;i++){const cur=[i];for(let j=1;j<=b.length;j++)cur[j]=Math.min(cur[j-1]+1,prev[j]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));prev=cur;}
+    return prev[b.length];
+  }
+  function searchScore(item,query){
+    const words=normalizeSearch(query).split(" ").filter(Boolean);if(!words.length)return 1;
+    let score=0,matched=0;const full=normalizeSearch(query);if(item.hay.includes(full))score+=12;
+    words.forEach(word=>{let found=item.hay.includes(word);if(!found)found=(searchSynonyms[word]||[]).some(s=>item.hay.includes(normalizeSearch(s)));
+      if(found){matched++;score+=4;}else if(word.length>3&&item.hay.split(" ").some(token=>token.length>3&&editDistance(word,token)<=1)){matched++;score+=2;}
+    });return matched===words.length?score:0;
+  }
+  function runProductSearch(query){
+    const q=normalizeSearch(query),ranked=searchItems.map(item=>({...item,score:searchScore(item,q)})).filter(x=>!q||x.score>0).sort((a,b)=>b.score-a.score);
+    searchItems.forEach(item=>item.card.classList.toggle("search-hidden",!!q&&!ranked.some(x=>x.card===item.card)));
+    if(searchStatus){searchStatus.classList.toggle("visible",!!q);searchStatus.textContent=q?(ranked.length?ranked.length.toLocaleString("fa-IR")+" محصول مرتبط پیدا شد.":"محصولی پیدا نشد؛ نام یا عبارت دیگری را امتحان کن."):"";}
+    if(searchClear)searchClear.classList.toggle("visible",!!q);return ranked;
+  }
+  function closeSearch(){if(searchResults)searchResults.classList.remove("open");}
+  function showSuggestions(query){
+    if(!searchResults)return;const q=normalizeSearch(query);
+    if(!q){searchResults.innerHTML='<div class="search-hint">برای مثال جستجو کن: ماگ گربه، باب اسفنجی، خرگوش، خرس یا ماگ فانتزی</div>';searchResults.classList.add("open");return;}
+    const ranked=runProductSearch(query).slice(0,5);searchResults.innerHTML="";
+    if(!ranked.length){searchResults.innerHTML='<div class="search-hint">نتیجه‌ای پیدا نشد. املای عبارت را بررسی کن یا کلمه کوتاه‌تری بنویس.</div>';searchResults.classList.add("open");return;}
+    ranked.forEach(item=>{const button=document.createElement("button");button.type="button";button.className="search-suggestion";button.setAttribute("role","option");button.textContent=item.title;
+      const small=document.createElement("small");small.textContent=item.price;button.appendChild(small);
+      button.addEventListener("click",()=>{searchInput.value=item.title;runProductSearch(item.title);closeSearch();document.getElementById("products")?.scrollIntoView({behavior:"smooth"});});searchResults.appendChild(button);
+    });searchResults.classList.add("open");
+  }
+  if(searchInput){
+    searchInput.addEventListener("input",()=>showSuggestions(searchInput.value));
+    searchInput.addEventListener("focus",()=>showSuggestions(searchInput.value));
+    searchInput.addEventListener("keydown",e=>{
+      const options=searchResults?.querySelectorAll(".search-suggestion")||[],active=searchResults?.querySelector(".search-suggestion.active");let index=Array.from(options).indexOf(active);
+      if(e.key==="ArrowDown"&&options.length){e.preventDefault();index=(index+1)%options.length;options.forEach(x=>x.classList.remove("active"));options[index].classList.add("active");}
+      else if(e.key==="ArrowUp"&&options.length){e.preventDefault();index=index<=0?options.length-1:index-1;options.forEach(x=>x.classList.remove("active"));options[index].classList.add("active");}
+      else if(e.key==="Enter"){e.preventDefault();if(active)active.click();else{runProductSearch(searchInput.value);closeSearch();document.getElementById("products")?.scrollIntoView({behavior:"smooth"});}}
+      else if(e.key==="Escape"){closeSearch();searchInput.blur();}
+    });
+  }
+  searchClear?.addEventListener("click",()=>{searchInput.value="";runProductSearch("");closeSearch();searchInput.focus();});
+  document.addEventListener("click",e=>{if(!e.target.closest("#siteSearch"))closeSearch();});
+  runProductSearch("");
+
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeSearch();}});
   document.addEventListener("DOMContentLoaded",updateCartCount);updateCartCount();
 })();
