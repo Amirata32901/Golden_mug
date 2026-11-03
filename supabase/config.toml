@@ -1,4 +1,0 @@
-project_id = "golden-mug-manager"
-
-[functions.create-order]
-verify_jwt = false
