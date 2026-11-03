@@ -980,6 +980,25 @@ button, a, input {
     }
 }
 
+
+/* WHOLESALE + STOCK */
+.wholesale-banner{
+ max-width:1180px;margin:24px auto 8px;padding:26px 28px;border-radius:22px;
+ border:1px solid rgba(255,210,26,.5);
+ background:linear-gradient(120deg,rgba(124,58,237,.24),rgba(255,210,26,.09),rgba(10,8,15,.9));
+ box-shadow:0 12px 38px rgba(0,0,0,.28),0 0 28px rgba(124,58,237,.12);
+ text-align:center;position:relative;z-index:2;
+}
+.wholesale-banner h2{color:#ffd21a;font-size:clamp(23px,4vw,34px);margin-bottom:10px}
+.wholesale-banner p{color:#e4dce9;line-height:2;margin:7px 0}
+.wholesale-banner .wholesale-tag{display:inline-block;margin-top:10px;padding:9px 16px;border-radius:30px;background:#ffd21a;color:#160d20;font-weight:800}
+.stock-info{
+ margin:12px 0 4px;padding:10px 12px;border-radius:11px;
+ background:rgba(255,210,26,.07);border:1px solid rgba(255,210,26,.2);
+ color:#d7cde0;font-size:13px;
+}
+.stock-info strong{color:#ffd21a;font-size:17px}
+
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1007,6 +1026,7 @@ button, a, input {
         <nav class="nav-links">
             <a href="#home">خانه</a>
             <a href="#products">محصولات</a>
+            <a href="#wholesale">فروش عمده</a>
             <a href="#features">مزایا</a>
         </nav>
 
@@ -1023,19 +1043,27 @@ button, a, input {
 </section>
 
 
+<!-- WHOLESALE -->
+<div class="wholesale-banner" id="wholesale">
+  <h2>فروش عمده ماگ و لیوان</h2>
+  <p>امکان ثبت سفارش عمده برای فروشگاه‌ها، همکاران و خریداران تعداد بالا فراهم است.</p>
+  <p>برای استعلام قیمت همکاری، تعداد سفارش و هماهنگی موجودی، از طریق دکمه خرید و پیام‌رسان با ما در ارتباط باشید.</p>
+  <span class="wholesale-tag">پذیرش سفارش عمده و تعداد بالا</span>
+</div>
+
 <!-- PRODUCTS -->
 
 <section id="products">
 
     <div class="section-title">
         <h2>محصولات <span>ویژه</span></h2>
-        <p>۱۶ مدل ماگ فانتزی، سرامیکی و فلاسک گلدن ماگ</p>
+        <p>۱۶ مدل ماگ فانتزی، سرامیکی و فلاسک؛ همراه با نمایش موجودی هر مدل</p>
     </div>
 
     <div class="seo-intro">
-        <h2>خرید لیوان ماگ و ماگ فانتزی</h2>
+        <h2>خرید تکی و فروش عمده لیوان ماگ</h2>
         <p><strong>گلدن ماگ</strong> مجموعه‌ای از لیوان‌های ماگ فانتزی و سرامیکی را با طرح‌های کارتونی و عروسکی معرفی می‌کند؛ از ماگ باب اسفنجی و ماگ گربه تا مدل‌های خرگوش و خرس.</p>
-        <p>برای انتخاب <strong>لیوان ماگ</strong> مناسب استفاده روزمره یا هدیه، تصاویر و قیمت پیشنهادی محصولات را بررسی کنید. برای تأیید قیمت و موجودی نهایی، پیش از ثبت سفارش با فروشگاه هماهنگ کنید.</p>
+        <p>گلدن ماگ علاوه بر فروش تکی، سفارش عمده ماگ و لیوان را برای همکاران و فروشگاه‌ها می‌پذیرد. تعداد موجودی درج‌شده برای هر محصول را ببینید و برای قیمت همکاری، تعداد سفارش و تأیید موجودی نهایی با فروشگاه هماهنگ کنید.</p>
     </div>
 
     <div class="search-status" id="searchStatus" aria-live="polite"></div>
@@ -1048,6 +1076,7 @@ button, a, input {
             </div>
             <h3>ماگ باب اسفنجی و دوستان</h3>
             <p class="description">ماگ سرامیکی فانتزی با طرح باب اسفنجی و پاتریک؛ مناسب طرفداران کارتون.</p>
+            <div class="stock-info">موجودی در انبار: <strong>124</strong> عدد</div>
             <div class="price">۲۵۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ باب اسفنجی و دوستان','۲۵۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1063,6 +1092,7 @@ button, a, input {
             </div>
             <h3>ماگ گربه فانتزی</h3>
             <p class="description">ماگ سفید با تصویر گربه بامزه و طرح CAT CAFE؛ انتخابی دوست‌داشتنی برای هدیه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>95</strong> عدد</div>
             <div class="price">۲۳۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ گربه فانتزی','۲۳۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1078,6 +1108,7 @@ button, a, input {
             </div>
             <h3>ماگ خرگوش‌های رنگی</h3>
             <p class="description">ماگ فانتزی با تصویر چند خرگوش رنگارنگ و جزئیات بامزه داخل ماگ.</p>
+            <div class="stock-info">موجودی در انبار: <strong>93</strong> عدد</div>
             <div class="price">۲۳۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ خرگوش‌های رنگی','۲۳۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1093,6 +1124,7 @@ button, a, input {
             </div>
             <h3>ماگ خرسی با دسته عروسکی</h3>
             <p class="description">ماگ سرامیکی با خرس کوچک برجسته روی دسته و طرح خرس روی بدنه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>126</strong> عدد</div>
             <div class="price">۲۸۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ خرسی با دسته عروسکی','۲۸۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1108,6 +1140,7 @@ button, a, input {
             </div>
             <h3>ماگ خرگوش صورتی</h3>
             <p class="description">ماگ فانتزی با طرح خرگوش صورتی و پاپیون؛ مناسب استفاده روزمره و هدیه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>83</strong> عدد</div>
             <div class="price">۲۴۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ خرگوش صورتی','۲۴۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1123,6 +1156,7 @@ button, a, input {
             </div>
             <h3>ماگ باب اسفنجی لبه زرد</h3>
             <p class="description">ماگ باب اسفنجی با لبه زردرنگ و طرح شاد و رنگی روی بدنه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>62</strong> عدد</div>
             <div class="price">۲۵۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ باب اسفنجی لبه زرد','۲۵۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1138,6 +1172,7 @@ button, a, input {
             </div>
             <h3>ماگ باب اسفنجی و دوستان</h3>
             <p class="description">ماگ طرح باب اسفنجی، پاتریک و اختاپوس؛ یک طرح کارتونی جذاب.</p>
+            <div class="stock-info">موجودی در انبار: <strong>68</strong> عدد</div>
             <div class="price">۲۵۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ باب اسفنجی و دوستان','۲۵۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
@@ -1147,14 +1182,22 @@ button, a, input {
 
 
         <!-- محصولات جدید -->
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151250_607.jpg" alt="فلاسک دکمه‌ای رنگی"></div><h3>فلاسک دکمه‌ای رنگی</h3><p class="description">فلاسک در رنگ‌های متنوع با درِ دکمه‌ای و طراحی مناسب استفاده روزمره.</p><div class="price">۵۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('فلاسک دکمه‌ای رنگی','۵۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151253_687.jpg" alt="ماگ شیشه‌ای گود مورنینگ"></div><h3>ماگ شیشه‌ای گود مورنینگ</h3><p class="description">ماگ شفاف با نوشته GOOD MORNING و دسته‌های رنگی متنوع.</p><div class="price">۳۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ شیشه‌ای گود مورنینگ','۳۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151302_504.jpg" alt="ماگ خرسی Cute Bear"></div><h3>ماگ خرسی Cute Bear</h3><p class="description">ماگ سرامیکی خرسی با طرح خرس‌های بامزه و ظاهر فانتزی.</p><div class="price">۲۸۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ خرسی Cute Bear','۲۸۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151305_412.jpg" alt="ماگ گربه‌های فانتزی"></div><h3>ماگ گربه‌های فانتزی</h3><p class="description">ماگ سفید با تصویر چند گربه بامزه و نوشته HAVE A NICE DAY.</p><div class="price">۲۶۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ گربه‌های فانتزی','۲۶۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151306_754.jpg" alt="ماگ خرسی با عروسک داخل ماگ"></div><h3>ماگ خرسی با عروسک داخل ماگ</h3><p class="description">ماگ خرسی سرامیکی با عروسک برجسته داخل ماگ و طرح خرس روی بدنه.</p><div class="price">۳۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ خرسی با عروسک داخل ماگ','۳۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151308_628.jpg" alt="ماگ خرسی Hi Bear"></div><h3>ماگ خرسی Hi Bear</h3><p class="description">ماگ سرامیکی با طرح خرس‌های رنگی و نوشته Hi Bear.</p><div class="price">۲۷۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ خرسی Hi Bear','۲۷۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151312_402.jpg" alt="ماگ سه خرس We Bare Bears"></div><h3>ماگ سه خرس We Bare Bears</h3><p class="description">ماگ فانتزی با تصویر سه خرس کارتونی روی بدنه.</p><div class="price">۲۹۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ سه خرس We Bare Bears','۲۹۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
-        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151315_154.jpg" alt="ماگ دختر و خرگوش"></div><h3>ماگ دختر و خرگوش</h3><p class="description">ماگ سفید با تصویر فانتزی دختر کوچولو و خرگوش سفید.</p><div class="price">۳۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ دختر و خرگوش','۳۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151250_607.jpg" alt="فلاسک دکمه‌ای رنگی"></div><h3>فلاسک دکمه‌ای رنگی</h3><p class="description">فلاسک در رنگ‌های متنوع با درِ دکمه‌ای و طراحی مناسب استفاده روزمره.</p>
+            <div class="stock-info">موجودی در انبار: <strong>136</strong> عدد</div><div class="price">۵۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('فلاسک دکمه‌ای رنگی','۵۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151253_687.jpg" alt="ماگ شیشه‌ای گود مورنینگ"></div><h3>ماگ شیشه‌ای گود مورنینگ</h3><p class="description">ماگ شفاف با نوشته GOOD MORNING و دسته‌های رنگی متنوع.</p>
+            <div class="stock-info">موجودی در انبار: <strong>105</strong> عدد</div><div class="price">۳۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ شیشه‌ای گود مورنینگ','۳۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151302_504.jpg" alt="ماگ خرسی Cute Bear"></div><h3>ماگ خرسی Cute Bear</h3><p class="description">ماگ سرامیکی خرسی با طرح خرس‌های بامزه و ظاهر فانتزی.</p>
+            <div class="stock-info">موجودی در انبار: <strong>120</strong> عدد</div><div class="price">۲۸۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ خرسی Cute Bear','۲۸۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151305_412.jpg" alt="ماگ گربه‌های فانتزی"></div><h3>ماگ گربه‌های فانتزی</h3><p class="description">ماگ سفید با تصویر چند گربه بامزه و نوشته HAVE A NICE DAY.</p>
+            <div class="stock-info">موجودی در انبار: <strong>103</strong> عدد</div><div class="price">۲۶۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ گربه‌های فانتزی','۲۶۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151306_754.jpg" alt="ماگ خرسی با عروسک داخل ماگ"></div><h3>ماگ خرسی با عروسک داخل ماگ</h3><p class="description">ماگ خرسی سرامیکی با عروسک برجسته داخل ماگ و طرح خرس روی بدنه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>94</strong> عدد</div><div class="price">۳۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ خرسی با عروسک داخل ماگ','۳۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151308_628.jpg" alt="ماگ خرسی Hi Bear"></div><h3>ماگ خرسی Hi Bear</h3><p class="description">ماگ سرامیکی با طرح خرس‌های رنگی و نوشته Hi Bear.</p>
+            <div class="stock-info">موجودی در انبار: <strong>73</strong> عدد</div><div class="price">۲۷۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ خرسی Hi Bear','۲۷۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151312_402.jpg" alt="ماگ سه خرس We Bare Bears"></div><h3>ماگ سه خرس We Bare Bears</h3><p class="description">ماگ فانتزی با تصویر سه خرس کارتونی روی بدنه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>116</strong> عدد</div><div class="price">۲۹۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ سه خرس We Bare Bears','۲۹۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
+        <article class="product"><div class="product-image"><img decoding="async" loading="lazy" src="IMG_20261103_151315_154.jpg" alt="ماگ دختر و خرگوش"></div><h3>ماگ دختر و خرگوش</h3><p class="description">ماگ سفید با تصویر فانتزی دختر کوچولو و خرگوش سفید.</p>
+            <div class="stock-info">موجودی در انبار: <strong>127</strong> عدد</div><div class="price">۳۰۰,۰۰۰ تومان</div><button class="buy-btn" onclick="buyProduct('ماگ دختر و خرگوش','۳۰۰,۰۰۰')"><span class="buy-icon">🛒</span><span>خرید محصول</span></button></article>
 
         <!-- محصول 8 -->
         <article class="product">
@@ -1163,6 +1206,7 @@ button, a, input {
             </div>
             <h3>ماگ خرس سه‌بعدی</h3>
             <p class="description">ماگ خرسی با خرس برجسته داخل ماگ و طرح خرس‌های کوچک روی بدنه.</p>
+            <div class="stock-info">موجودی در انبار: <strong>65</strong> عدد</div>
             <div class="price">۲۹۰,۰۰۰ تومان</div>
             <button class="buy-btn" onclick="buyProduct('ماگ خرس سه‌بعدی','۲۹۰,۰۰۰')">
                 <span class="buy-icon">🛒</span>
