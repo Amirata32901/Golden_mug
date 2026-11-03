@@ -908,6 +908,21 @@ footer strong{
 .hero-content p{color:#d6cedd;font-size:15px;line-height:2;margin:0 auto 18px;max-width:760px}
 .hero-buttons{justify-content:center}
 @media(max-width:700px){.hero{padding:25px 3% 38px}.hero-showcase-heading h1{font-size:clamp(28px,8vw,39px)}.hero-showcase-heading p{font-size:13px}.mug3d-viewer{height:340px;width:100%}.mug3d-counter{top:8px}.mug3d-hint{font-size:10px;bottom:4px;padding:7px 11px}.hero-content p{font-size:14px}}
+/* POWER SEARCH */
+.nav{gap:18px}.site-search{position:relative;flex:1;max-width:470px;min-width:180px;margin:0 18px;z-index:1200}
+.search-field{height:46px;display:flex;align-items:center;gap:10px;padding:0 14px;border:1px solid rgba(168,85,247,.45);border-radius:15px;background:rgba(22,13,32,.92);transition:.25s}
+.search-field:focus-within{border-color:#ffd21a;box-shadow:0 0 0 3px rgba(255,210,26,.1),0 0 25px rgba(124,58,237,.25)}
+.search-field input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:14px Tahoma;text-align:right}
+.search-field input::placeholder{color:#a99bb5}.search-symbol{font-size:20px;color:#ffd21a}
+.search-clear{display:none;border:0;background:transparent;color:#cbb8dc;font-size:22px;cursor:pointer}.search-clear.visible{display:block}
+.search-results{display:none;position:absolute;top:54px;right:0;left:0;max-height:360px;overflow:auto;background:#100b18;border:1px solid rgba(255,210,26,.45);border-radius:15px;padding:7px;box-shadow:0 18px 45px #000}
+.search-results.open{display:block}.search-suggestion{display:block;width:100%;padding:12px;border:0;border-radius:10px;background:transparent;color:#eee;text-align:right;font:13px Tahoma;cursor:pointer}
+.search-suggestion:hover,.search-suggestion.active{background:rgba(124,58,237,.28);color:#ffd21a}.search-suggestion small{display:block;color:#9e8eaa;margin-top:5px}
+.search-hint{padding:10px;color:#a99bb5;font-size:11px;line-height:1.9}.search-status{display:none;margin:-22px auto 28px;padding:12px 16px;max-width:900px;border:1px solid rgba(255,210,26,.25);border-radius:12px;background:rgba(124,58,237,.1);color:#e9def4;text-align:center;font:13px Tahoma}
+.search-status.visible{display:block}.product.search-hidden{display:none!important}
+@media(max-width:900px){.nav{flex-wrap:wrap}.site-search{order:3;flex-basis:100%;max-width:none;margin:12px 0 0}.nav-links{display:none}}
+@media(max-width:600px){.search-field{height:44px}.search-results{max-height:280px}}
+
 </style>
 </head>
 
@@ -920,6 +935,10 @@ footer strong{
 
         <div class="logo">
             ☕ گلدن <span>ماگ</span>
+        </div>
+        <div class="site-search" id="siteSearch">
+          <div class="search-field"><span class="search-symbol" aria-hidden="true">⌕</span><input id="productSearch" type="search" autocomplete="off" aria-label="جستجوی محصولات" placeholder="جستجوی هوشمند؛ نام، طرح یا ویژگی محصول..."><button class="search-clear" id="searchClear" type="button" aria-label="پاک کردن جستجو">×</button></div>
+          <div class="search-results" id="searchResults" role="listbox"></div>
         </div>
 
         <div class="account-actions"><button class="cart-link" type="button" onclick="openCart()">سبد خرید <span id="cartCount">0</span></button></div>
@@ -957,7 +976,8 @@ footer strong{
         <p>برای انتخاب <strong>لیوان ماگ</strong> مناسب استفاده روزمره یا هدیه، تصاویر و قیمت پیشنهادی محصولات را بررسی کنید. برای تأیید قیمت و موجودی نهایی، پیش از ثبت سفارش با فروشگاه هماهنگ کنید.</p>
     </div>
 
-    <div class="products">
+    <div class="search-status" id="searchStatus" aria-live="polite"></div>
+    <div class="products" id="productGrid">
 
         <!-- محصول 1 -->
         <article class="product">
