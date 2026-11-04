@@ -1,11 +1,9 @@
-/* Golden Mug account page
- * After deploying the Flask API, set API_BASE to its HTTPS address.
- * Example: const API_BASE = "https://api.your-domain.example";
- */
-const API_BASE = "";
+/* Golden Mug account page */
+const API_BASE = ""; // بعد از استقرار بک‌اند، آدرس HTTPS را اینجا قرار بده.
 const $ = (id) => document.getElementById(id);
 const message = $("message");
-function say(text){message.textContent=text;}
+let csrfToken = "";
+function say(text){ if(message) message.textContent=text; }
 function tab(which){
   $("loginForm").classList.toggle("hidden",which!=="login");
   $("registerForm").classList.toggle("hidden",which!=="register");
@@ -15,11 +13,24 @@ function tab(which){
 $("loginTab").onclick=()=>tab("login");
 $("registerTab").onclick=()=>tab("register");
 async function api(path, options={}){
-  if(!API_BASE) throw new Error("این صفحه فعلاً پیش‌نمایش است؛ ابتدا باید آدرس HTTPS بک‌اند تنظیم شود.");
-  const response=await fetch(API_BASE+path,{...options,credentials:"include",headers:{"Content-Type":"application/json",...(options.headers||{})}});
+  if(!API_BASE) throw new Error("اتصال سرور هنوز تنظیم نشده است؛ صفحه فعلاً آماده‌سازی شده است.");
+  const method=(options.method||"GET").toUpperCase();
+  const headers={"Content-Type":"application/json",...(options.headers||{})};
+  if(["POST","PATCH","PUT","DELETE"].includes(method)){
+    if(!csrfToken) await refreshCsrf();
+    headers["X-CSRF-Token"]=csrfToken;
+  }
+  const response=await fetch(API_BASE+path,{...options,credentials:"include",headers});
   const data=await response.json().catch(()=>({}));
   if(!response.ok) throw new Error(data.error||"ارتباط با سرور ناموفق بود.");
+  if(data.csrf_token) csrfToken=data.csrf_token;
   return data;
+}
+async function refreshCsrf(){
+  const response=await fetch(API_BASE+"/api/csrf",{credentials:"include"});
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok||!data.csrf_token) throw new Error("دریافت توکن امنیتی ناموفق بود.");
+  csrfToken=data.csrf_token;
 }
 $("loginForm").addEventListener("submit",async e=>{
  e.preventDefault();const f=new FormData(e.currentTarget);
@@ -42,4 +53,8 @@ async function loadProfile(){
   orders.orders.forEach(o=>{const div=document.createElement("div");div.className="order";div.textContent="کد پیگیری: "+o.tracking_code+" | وضعیت: "+o.status+" | مبلغ: "+Number(o.total_price).toLocaleString("fa-IR")+" تومان";$("orders").appendChild(div);});
  }catch(err){$("profile").classList.add("hidden");say(err.message);}
 }
-$("logout").onclick=async()=>{try{await api("/api/logout",{method:"POST"});$("profile").classList.add("hidden");say("از حساب خارج شدی.");}catch(err){say(err.message);}};
+$("logout").onclick=async()=>{
+ try{await api("/api/logout",{method:"POST"});$("profile").classList.add("hidden");say("از حساب خارج شدی.");}
+ catch(err){say(err.message);}
+};
+if(API_BASE){refreshCsrf().then(loadProfile).catch(err=>say(err.message));}
