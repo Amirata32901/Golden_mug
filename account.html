@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>حساب مشتری | گلدن ماگ</title>
+<style>
+:root{--bg:#07060b;--panel:#120d1c;--purple:#8b5cf6;--yellow:#ffd21a;--muted:#b9afc7}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 15%,#301653 0,transparent 35%),radial-gradient(circle at 85% 80%,#44300b 0,transparent 25%),var(--bg);color:#fff;font-family:Tahoma,Arial,sans-serif;display:grid;place-items:center;padding:24px}
+.wrap{width:min(960px,100%);display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.intro,.panel{border:1px solid #49336a;background:rgba(18,13,28,.92);border-radius:24px;padding:30px;box-shadow:0 25px 80px #0008}
+.logo{font-size:27px;color:var(--yellow);font-weight:bold}.logo span{color:#c4a5fd}
+h1{font-size:34px;line-height:1.5;margin:48px 0 12px}.intro p{color:var(--muted);line-height:2}
+.pill{display:inline-block;border:1px solid #7750b3;color:#d9c7ff;border-radius:30px;padding:8px 13px;font-size:12px}
+.tabs{display:flex;gap:10px;margin-bottom:22px}.tabs button{flex:1}
+button,input{font:inherit}button{border:0;border-radius:12px;padding:13px;cursor:pointer;background:#332047;color:white}button.active,.primary{background:linear-gradient(120deg,var(--yellow),#ffb000);color:#171006;font-weight:bold}
+label{display:block;color:#e7dff0;font-size:13px;margin:14px 0 7px}input{width:100%;padding:14px;border:1px solid #49365e;border-radius:12px;background:#09070e;color:white;outline:none}input:focus{border-color:var(--yellow)}
+form{display:grid;gap:2px}.primary{margin-top:18px}.message{min-height:24px;color:var(--yellow);font-size:13px;line-height:1.8;margin-top:12px}
+.hidden{display:none!important}.profile{border-top:1px solid #49365e;margin-top:20px;padding-top:18px}.profile p{color:var(--muted);line-height:2}.order{padding:12px;border:1px solid #49365e;border-radius:12px;margin:9px 0;font-size:13px}
+.back{display:inline-block;margin-top:22px;color:var(--yellow);text-decoration:none}
+@media(max-width:720px){.wrap{grid-template-columns:1fr}.intro{padding:22px}.intro h1{margin:20px 0 8px}.panel{padding:22px}}
+</style></head>
+<body><main class="wrap">
+<section class="intro"><div class="logo">گلدن <span>ماگ</span></div><h1>حساب کاربری تو،<br>همیشه در دسترس</h1><p>از این بخش می‌توانی وارد حساب شوی، اطلاعات پروفایلت را ببینی و سفارش‌هایت را پیگیری کنی.</p><span class="pill">پنل مشتریان گلدن ماگ</span><br><a class="back" href="index.html">← بازگشت به فروشگاه</a></section>
+<section class="panel"><div class="tabs"><button id="loginTab" class="active" type="button">ورود</button><button id="registerTab" type="button">ثبت‌نام</button></div>
+<form id="loginForm"><label>نام کاربری</label><input name="username" required minlength="3" autocomplete="username"><label>رمز عبور</label><input name="password" type="password" required autocomplete="current-password"><button class="primary" type="submit">ورود به حساب</button></form>
+<form id="registerForm" class="hidden"><label>نام و نام خانوادگی</label><input name="full_name" required maxlength="80"><label>شماره تماس</label><input name="phone" maxlength="25" inputmode="tel"><label>نام کاربری انگلیسی</label><input name="username" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_.-]+"><label>رمز عبور (حداقل ۱۰ نویسه)</label><input name="password" type="password" required minlength="10" maxlength="128" autocomplete="new-password"><button class="primary" type="submit">ساخت حساب</button></form>
+<div id="message" class="message" role="status">حالت پیش‌نمایش: برای ورود واقعی باید نشانی API سرور تنظیم شود.</div>
+<div id="profile" class="profile hidden"><h3>پروفایل مشتری</h3><div id="profileInfo"></div><h3>سفارش‌های من</h3><div id="orders">برای دیدن سفارش‌ها وارد حساب شو.</div><button id="logout" type="button">خروج از حساب</button></div>
+</section></main><script src="account.js"></script></body></html>
