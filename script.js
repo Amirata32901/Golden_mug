@@ -2,7 +2,28 @@
 (function(){
   const STORAGE_KEY = "goldenMugCartV2";
   const RUBIKA_URL = "https://rubika.ir/sajad_yousefi1317";
-  function readCart(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");}catch(e){return [];}}
+  // داده‌های localStorage قابل اعتماد نیستند؛ نام و قیمت را با کاتالوگ صفحه تطبیق می‌دهیم.
+  function readCart(){
+    try{
+      const raw=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
+      if(!Array.isArray(raw))return [];
+      const catalog=new Map();
+      document.querySelectorAll("#productGrid .product").forEach(card=>{
+        const name=(card.querySelector("h3")?.textContent||"").trim();
+        const priceText=card.querySelector(".price")?.textContent||"";
+        const price=Number(String(priceText).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[^0-9]/g,""))||0;
+        if(name&&price>0)catalog.set(name,price);
+      });
+      const clean=[];
+      raw.slice(0,50).forEach(item=>{
+        if(!item||typeof item.name!=="string"||!catalog.has(item.name))return;
+        const quantity=Number(item.quantity);
+        if(!Number.isInteger(quantity)||quantity<1||quantity>20)return;
+        clean.push({id:item.name,name:item.name,price:catalog.get(item.name),quantity});
+      });
+      return clean;
+    }catch(e){return [];}
+  }
   function saveCart(items){localStorage.setItem(STORAGE_KEY,JSON.stringify(items));updateCartCount();}
   function digitsToNumber(value){
     const p="۰۱۲۳۴۵۶۷۸۹",a="٠١٢٣٤٥٦٧٨٩";
