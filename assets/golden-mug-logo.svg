@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#32105f"/><stop offset=".62" stop-color="#10051f"/><stop offset="1" stop-color="#05030b"/></radialGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff3a0"/><stop offset=".25" stop-color="#ffd21a"/><stop offset=".58" stop-color="#b76b00"/><stop offset=".8" stop-color="#fff0a0"/><stop offset="1" stop-color="#8b4a00"/></linearGradient>
+ <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5a2194"/><stop offset=".4" stop-color="#10071c"/><stop offset=".75" stop-color="#2c1050"/><stop offset="1" stop-color="#05030b"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<rect width="1200" height="800" rx="38" fill="url(#bg)"/>
+<g opacity=".34" fill="none" stroke="#a855f7" filter="url(#glow)"><path d="M40 510 Q210 250 390 420T760 300T1160 410" stroke-width="10"/><path d="M30 580 Q240 360 420 500T850 400T1170 520" stroke-width="5"/></g>
+<circle cx="600" cy="350" r="265" fill="none" stroke="url(#gold)" stroke-width="8" opacity=".9" filter="url(#glow)"/>
+<circle cx="600" cy="350" r="247" fill="none" stroke="#a855f7" stroke-width="3" opacity=".8"/>
+<g filter="url(#shadow)" opacity=".7"><ellipse cx="600" cy="650" rx="330" ry="34" fill="#000"/></g>
+<g filter="url(#glow)">
+ <path d="M510 180 Q480 115 530 90 Q505 140 555 163 M635 170 Q690 105 650 65 Q700 120 660 175" fill="none" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+ <path d="M380 235 Q600 180 820 235 L785 480 Q780 535 725 545 L475 545 Q420 535 415 480Z" fill="url(#cup)" stroke="url(#gold)" stroke-width="13"/>
+ <path d="M820 285 Q1000 260 970 410 Q950 505 790 480" fill="none" stroke="url(#gold)" stroke-width="28"/>
+ <path d="M398 236 Q600 185 802 236" fill="none" stroke="#fff0a0" stroke-width="17" stroke-linecap="round"/>
+ <path d="M475 275 Q600 310 740 275" fill="none" stroke="#c084fc" stroke-width="5" opacity=".6"/>
+ <path d="M535 380 L565 330 L595 365 L625 330 L655 380 L650 400 L540 400Z" fill="url(#gold)" stroke="#fff0a0" stroke-width="4"/>
+ <path d="M545 412 Q600 440 650 412" fill="none" stroke="url(#gold)" stroke-width="8"/>
+</g>
+<g text-anchor="middle" font-family="Georgia,serif" font-weight="bold">
+ <text x="600" y="625" font-size="104" fill="#000" stroke="#000" stroke-width="18" opacity=".8">Golden Mug</text>
+ <text x="600" y="615" font-size="104" fill="url(#gold)" stroke="#32105f" stroke-width="3" paint-order="stroke">Golden Mug</text>
+ <text x="600" y="680" font-family="Arial,sans-serif" font-size="27" letter-spacing="12" fill="#ffe27a">MORE THAN A MUG</text>
+</g>
+<path d="M270 697 H430 M770 697 H930" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+<g fill="url(#gold)" opacity=".95"><circle cx="220" cy="310" r="5"/><circle cx="980" cy="260" r="6"/><circle cx="290" cy="490" r="4"/><circle cx="920" cy="510" r="4"/><circle cx="600" cy="95" r="5"/></g>
+</svg>
