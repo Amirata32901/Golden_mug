@@ -747,8 +747,6 @@ footer strong{
 
 /* ACCOUNT + CART */
 .account-actions{display:flex;gap:10px;align-items:center}
-.account-link,.cart-link{color:#fff;text-decoration:none;border:1px solid rgba(255,210,26,.45);border-radius:12px;padding:10px 14px;background:rgba(124,58,237,.16);font:13px Tahoma;cursor:pointer}
-.account-link:hover,.cart-link:hover{background:#7c3aed;border-color:#ffd21a}
 .cart-panel{position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:16px}
 .cart-panel.open{display:flex}
 .cart-box{width:520px;max-width:100%;max-height:85vh;overflow:auto;background:#100b18;border:1px solid #ffd21a;border-radius:22px;padding:22px;box-shadow:0 20px 70px #000}
@@ -757,7 +755,7 @@ footer strong{
 .cart-row button{background:#6d28d9;color:white;border:0;border-radius:9px;padding:8px 10px;cursor:pointer;font:12px Tahoma}
 .cart-total{color:#ffd21a;font-weight:bold;margin:18px 0}
 .cart-close{background:#ffd21a;color:#09060d;border:0;border-radius:10px;padding:11px 16px;font:bold 13px Tahoma;cursor:pointer}
-@media(max-width:700px){.account-actions{gap:6px}.account-link,.cart-link{padding:9px 10px;font-size:11px}}
+@media(max-width:700px){.account-actions{gap:6px}.cart-link{padding:9px 10px;font-size:11px}}
 
 /* سبد خرید تکمیل‌شده */
 .account-actions{display:flex;align-items:center}
@@ -1022,7 +1020,7 @@ button, a, input {
           <div class="search-results" id="searchResults" role="listbox"></div>
         </div>
 
-        <div class="account-actions"><a class="account-link" href="account.html">حساب مشتری</a><button class="cart-link" type="button" onclick="openCart()">سبد خرید <span id="cartCount">0</span></button></div>
+        <div class="account-actions"><button class="cart-link" type="button" onclick="openCart()">سبد خرید <span id="cartCount">0</span></button></div>
         <nav class="nav-links">
             <a href="#home">خانه</a>
             <a href="#products">محصولات</a>
