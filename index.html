@@ -1156,6 +1156,17 @@ button, a, input {
   .cart-link{padding:7px;font-size:9px}
 }
 
+
+/* GOLDEN MUG CUSTOM MOUSE CURSOR */
+:root{
+  --mug-cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M13 7c-3-3 2-4 0-6M22 7c-3-3 2-4 0-6' fill='none' stroke='%23ffd21a' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6 12h21v13a5 5 0 0 1-5 5h-11a5 5 0 0 1-5-5z' fill='%237c3aed' stroke='%23ffd21a' stroke-width='2'/%3E%3Cpath d='M27 15h2a5 5 0 0 1 0 10h-3' fill='none' stroke='%23ffd21a' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M9 17h15' stroke='%23e9d5ff' stroke-width='1.5' stroke-linecap='round' opacity='.8'/%3E%3C/svg%3E") 6 5, auto;
+}
+html,body,body *{cursor:var(--mug-cursor)}
+a,button,[role="button"],input[type="button"],input[type="submit"],select,label,.product,.cart-link{
+  cursor:pointer;
+}
+input,textarea,[contenteditable="true"]{cursor:text}
+
 </style>\n</head>
 
 <body>
