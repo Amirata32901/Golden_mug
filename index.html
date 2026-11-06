@@ -1085,6 +1085,77 @@ button, a, input {
 .faq-item:focus-within{outline:2px solid var(--yellow);outline-offset:3px}
 .site-search input{font-family:Vazirmatn,Tahoma,Arial,sans-serif}
 @media(min-width:1000px){.products{align-items:stretch}.product{height:100%;display:flex;flex-direction:column}.product .buy-btn{margin-top:auto}}
+
+/* HEADER LAYOUT FIX — balanced RTL alignment */
+.nav{
+  width:100%;
+  max-width:1280px;
+  display:grid !important;
+  grid-template-columns:max-content minmax(220px,1fr) max-content;
+  grid-template-areas:"brand search actions" "links links links";
+  align-items:center;
+  column-gap:clamp(14px,2vw,28px);
+  row-gap:13px;
+}
+.logo{grid-area:brand;white-space:nowrap}
+.site-search{
+  grid-area:search;
+  width:100%;
+  min-width:0;
+  max-width:520px;
+  margin:0 auto;
+}
+.account-actions{
+  grid-area:actions;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  flex-wrap:nowrap;
+  gap:7px;
+  min-width:0;
+}
+.account-link{flex:0 0 auto;padding:9px 11px;font-size:12px}
+.cart-link{white-space:nowrap}
+.nav-links{
+  grid-area:links;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:clamp(20px,4vw,42px);
+  width:100%;
+  padding-top:12px;
+  border-top:1px solid rgba(168,85,247,.16);
+}
+@media(max-width:900px){
+  .nav{
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"brand actions" "search search";
+    column-gap:12px;
+    row-gap:12px;
+  }
+  .site-search{max-width:none;margin:0}
+  .nav-links{display:none}
+  .account-actions{gap:5px}
+  .account-link{padding:8px 9px;font-size:11px}
+}
+@media(max-width:600px){
+  header{padding:12px 4%}
+  .nav{column-gap:8px;row-gap:10px}
+  .logo{font-size:20px}
+  .account-actions{gap:4px}
+  .account-link{min-height:36px;padding:7px 8px;font-size:10px}
+  .cart-link{padding:8px 9px;font-size:10px}
+  #cartCount{min-width:18px;height:18px}
+  .site-search{width:100%}
+}
+@media(max-width:390px){
+  .logo{font-size:18px}
+  .account-actions{gap:3px}
+  .account-link{padding:6px;font-size:9px}
+  .cart-link{padding:7px;font-size:9px}
+}
+
 </style>\n</head>
 
 <body>
