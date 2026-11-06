@@ -1167,6 +1167,64 @@ a,button,[role="button"],input[type="button"],input[type="submit"],select,label,
 }
 input,textarea,[contenteditable="true"]{cursor:text}
 
+
+/* LOGO HERO */
+.logo-hero{
+  min-height:0 !important;
+  padding:34px 4% 58px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%,rgba(124,58,237,.24),transparent 58%),
+    linear-gradient(180deg,#090510,#050507) !important;
+}
+.logo-hero::before{
+  right:50% !important;top:12% !important;
+  transform:translateX(50%);
+  width:min(70vw,650px) !important;height:min(70vw,650px) !important;
+  opacity:.22 !important;filter:blur(115px) !important;
+}
+.logo-hero-image-wrap{
+  position:relative;z-index:2;
+  width:min(100%,1050px);
+  margin:0 auto;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.5),0 0 55px rgba(124,58,237,.2);
+  animation:logoHeroIn .9s cubic-bezier(.2,.8,.2,1) both;
+}
+.logo-hero-image{
+  display:block;width:100%;height:auto;max-height:590px;
+  object-fit:contain;
+}
+.logo-hero-content{
+  width:min(1000px,94%) !important;
+  margin:0 auto !important;
+  padding:20px 0 0 !important;
+  text-align:center !important;
+}
+.logo-hero-content h1{
+  max-width:none !important;font-size:clamp(27px,4vw,46px) !important;
+  margin:0 auto 10px !important;
+}
+.logo-hero-content p{margin:0 auto 20px !important;font-size:16px !important}
+.logo-hero-content .hero-buttons{justify-content:center}
+@keyframes logoHeroIn{
+  from{opacity:0;transform:translateY(24px) scale(.985);filter:blur(5px)}
+  to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+@media(max-width:600px){
+  .logo-hero{padding:20px 4% 42px !important;gap:4px !important}
+  .logo-hero-image-wrap{border-radius:16px}
+  .logo-hero-image{max-height:none}
+  .logo-hero-content{padding-top:16px !important}
+  .logo-hero-content p{font-size:14px !important}
+}
+
 </style>\n</head>
 
 <body>
@@ -1203,10 +1261,18 @@ input,textarea,[contenteditable="true"]{cursor:text}
 
 <!-- HERO -->
 
-<section class="hero" id="home">
-<div class="hero-showcase-heading"><div class="badge">مجموعه گلدن ماگ</div><h1>ماگ‌های زیبا با <span>طرح‌های مختلف</span></h1><p>۲۰ مدل سه‌بعدی با رنگ‌ها و طرح‌های متنوع؛ هر چند ثانیه یک ماگ جدید نمایش داده می‌شود.</p></div>
-<div id="mug3d-viewer" class="mug3d-viewer" aria-label="نمایش نوبتی بیست مدل ماگ سه‌بعدی"><div class="mug3d-counter" id="mug3d-counter">مدل ۰۱ از ۲۰</div><div class="mug3d-hint">نمایش خودکار مدل‌ها؛ برای چرخاندن ماگ بکشید</div></div>
-<div class="hero-content"><p>از طرح‌های مینیمال و کلاسیک تا مدل‌های رنگارنگ و فانتزی؛ مدل‌ها را تماشا کن و برای دیدن محصولات واقعی به بخش فروشگاه برو.</p><div class="hero-buttons"><a href="#products" class="hero-btn primary">دیدن همه ماگ‌ها</a><a href="#features" class="hero-btn secondary">درباره گلدن ماگ</a></div></div>
+<section class="hero logo-hero" id="home" aria-labelledby="home-title">
+  <div class="logo-hero-image-wrap">
+    <img class="logo-hero-image" src="Golden%20Mug_%20More%20Than%20a%20Mug.png" alt="لوگوی رسمی گلدن ماگ؛ ماگ مشکی و طلایی با نشان تاج در پس‌زمینه بنفش" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-content logo-hero-content">
+    <h1 id="home-title">گلدن ماگ؛ <span>بیشتر از یک ماگ</span></h1>
+    <p>ماگ‌های فانتزی و سرامیکی و فلاسک‌های متنوع را در فروشگاه گلدن ماگ ببین.</p>
+    <div class="hero-buttons">
+      <a href="#products" class="hero-btn primary">دیدن محصولات</a>
+      <a href="#features" class="hero-btn secondary">درباره گلدن ماگ</a>
+    </div>
+  </div>
 </section>
 
 
