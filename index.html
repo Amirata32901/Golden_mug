@@ -1022,6 +1022,34 @@ button, a, input {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+
+<style id="golden-motion-seo">
+/* حرکت‌های تازه و انیمیشن متن */
+@keyframes textRiseIn{0%{opacity:0;transform:translate3d(0,34px,0);filter:blur(7px);letter-spacing:-.04em}65%{opacity:1;filter:blur(0);letter-spacing:0}100%{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}}
+@keyframes goldTextShine{0%,100%{text-shadow:0 0 10px rgba(255,210,26,.18)}50%{text-shadow:0 0 28px rgba(255,210,26,.65),0 0 55px rgba(168,85,247,.25)}}
+@keyframes wordFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes borderPulse{0%,100%{box-shadow:0 0 0 rgba(168,85,247,0)}50%{box-shadow:0 0 28px rgba(168,85,247,.22)}}
+.hero-showcase-heading h1{animation:textRiseIn 1s cubic-bezier(.2,.8,.2,1) both}
+.hero-showcase-heading p{animation:textRiseIn 1s .18s both}
+.hero-showcase-heading .badge{animation:textRiseIn .8s .08s both}
+.hero-content p{animation:textRiseIn 1s .3s both}
+.hero-content .hero-buttons{animation:textRiseIn 1s .45s both}
+.hero-showcase-heading h1 span,.hero h1 span{animation:goldTextShine 4s ease-in-out infinite}
+.section-title h2{animation:textRiseIn .8s both}
+.seo-intro{animation:borderPulse 5s ease-in-out infinite}
+.motion-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+.motion-reveal.is-visible{opacity:1;transform:translateY(0)}
+.product{will-change:transform}
+.product:hover{transform:translateY(-12px) scale(1.012)}
+.faq-section{max-width:1050px;margin:0 auto;padding:65px 20px;position:relative;z-index:2}
+.faq-section h2{text-align:center;color:var(--yellow);font-size:clamp(25px,4vw,36px);margin-bottom:28px}
+.faq-item{padding:20px 22px;margin:13px 0;border:1px solid rgba(168,85,247,.28);border-radius:17px;background:linear-gradient(120deg,rgba(124,58,237,.12),rgba(255,210,26,.035));transition:.3s}
+.faq-item:hover{border-color:var(--yellow);transform:translateX(-4px)}
+.faq-item h3{font-size:17px;color:#fff;margin-bottom:9px}
+.faq-item p{color:#c9c2d1;line-height:2}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.motion-reveal{opacity:1;transform:none}}
+@media(max-width:600px){.hero-showcase-heading h1{font-size:clamp(30px,9vw,43px)}.faq-section{padding:42px 16px}.faq-item{padding:17px}}
+</style>
 </head>
 
 <body>
@@ -1239,6 +1267,22 @@ button, a, input {
 </section>
 
 
+
+<!-- محتوای راهنمای خرید برای جست‌وجو و کاربران -->
+<section class="seo-intro motion-reveal" id="buying-guide" aria-labelledby="buying-guide-title">
+  <h2 id="buying-guide-title">راهنمای خرید ماگ و فلاسک از گلدن ماگ</h2>
+  <p>برای انتخاب یک <strong>ماگ مناسب</strong>، به ظرفیت، جنس بدنه، نوع دسته، طرح و کاربرد روزانه آن توجه کنید. ماگ سرامیکی و ماگ فانتزی می‌توانند برای نوشیدنی‌های روزمره یا هدیه انتخاب شوند؛ پیش از سفارش، تصاویر و توضیحات هر محصول را بررسی کنید.</p>
+  <p>اگر محصولی برای بیرون از خانه می‌خواهید، هنگام انتخاب <strong>فلاسک</strong> به ظرفیت، نوع درپوش و راحتی حمل توجه کنید. برای اطلاع از موجودی و هماهنگی سفارش تکی یا عمده، از دکمه خرید همان محصول استفاده کنید.</p>
+  <p>گلدن ماگ در کنار انواع ماگ و فلاسک، به‌تدریج دسته‌های کاربردی دیگری از لوازم خانه و آشپزخانه را نیز معرفی می‌کند. مشخصات و قیمت درج‌شده در صفحه هر محصول را پیش از ثبت سفارش بررسی کنید.</p>
+</section>
+<section class="faq-section motion-reveal" id="faq" aria-labelledby="faq-title">
+  <h2 id="faq-title">پرسش‌های متداول خرید از گلدن ماگ</h2>
+  <article class="faq-item"><h3>چه مدل‌هایی از ماگ در گلدن ماگ معرفی شده‌اند؟</h3><p>مدل‌های فانتزی، سرامیکی، طرح حیوانات و شخصیت‌های کارتونی در صفحه محصولات معرفی شده‌اند. برای دیدن عکس، توضیحات و قیمت هر مدل، کارت همان محصول را بررسی کنید.</p></article>
+  <article class="faq-item"><h3>چطور از گلدن ماگ سفارش ثبت کنم؟</h3><p>روی دکمه «خرید محصول» بزنید و مراحل نمایش‌داده‌شده را دنبال کنید تا اطلاعات سفارش برای هماهنگی در روبیکا آماده شود.</p></article>
+  <article class="faq-item"><h3>آیا امکان سفارش عمده ماگ وجود دارد؟</h3><p>بله، گلدن ماگ برای سفارش‌های عمده نیز امکان هماهنگی در نظر گرفته است. برای استعلام قیمت همکاری و تعداد، از راه ارتباطی درج‌شده در فرایند سفارش استفاده کنید.</p></article>
+  <article class="faq-item"><h3>پیش از خرید فلاسک به چه نکاتی توجه کنم؟</h3><p>ظرفیت، نوع درپوش، ابعاد و کاربرد موردنظرتان را با توضیحات محصول مقایسه کنید و موجودی نهایی را هنگام هماهنگی سفارش بپرسید.</p></article>
+</section>
+
 <!-- FEATURES -->
 
 <section id="features">
@@ -1303,5 +1347,20 @@ button, a, input {
 </div>
 <script type="module" src="mug3d.js"></script>
 <script src="script.js" defer></script>
+
+<script id="golden-motion-script">
+(function(){
+  var items=document.querySelectorAll('.product,.feature,.seo-intro,.faq-section,.section-title');
+  items.forEach(function(el){el.classList.add('motion-reveal')});
+  if(!('IntersectionObserver' in window)){items.forEach(function(el){el.classList.add('is-visible')});return}
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+  items.forEach(function(el){observer.observe(el)});
+})();
+</script>
+
 </body>
 </html>
