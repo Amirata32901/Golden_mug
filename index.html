@@ -996,25 +996,7 @@ button, a, input {
  color:#d7cde0;font-size:13px;
 }
 .stock-info strong{color:#ffd21a;font-size:17px}
-
-
-/* CUSTOMER ACCOUNT LINKS */
-.account-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.account-link{
- display:inline-flex;align-items:center;justify-content:center;
- min-height:42px;padding:10px 15px;border-radius:12px;
- text-decoration:none;font:700 13px Tahoma,Arial,sans-serif;
- transition:transform .25s,box-shadow .25s,background .25s;
- white-space:nowrap
-}
-.account-link:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(124,58,237,.3)}
-.account-link.signup{background:linear-gradient(135deg,#ffd21a,#ffb700);color:#100b00}
-.account-link.login,.account-link.profile{border:1px solid rgba(255,210,26,.5);color:#fff;background:rgba(124,58,237,.22)}
-@media(max-width:700px){
- .nav{flex-wrap:wrap;gap:12px}
- .account-actions{order:3;width:100%;justify-content:center}
- .account-link{flex:1;padding:9px 8px;font-size:12px}
-}
+/* Account registration, login and profile links removed. */
 
 </style>
 
@@ -1454,9 +1436,6 @@ footer strong{color:var(--yellow2)}
         </div>
 
         <div class="account-actions">
-          <a class="account-link signup" href="https://golden-mug-accounts.lovable.app/signup">ثبت‌نام</a>
-          <a class="account-link login" href="https://golden-mug-accounts.lovable.app/login">ورود</a>
-          <a class="account-link profile" href="https://golden-mug-accounts.lovable.app/profile">پروفایل</a>
           <button class="cart-link" type="button" onclick="openCart()">سبد خرید <span id="cartCount">0</span></button>
         </div>
         <nav class="nav-links">
